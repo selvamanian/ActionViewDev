@@ -2,44 +2,73 @@
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<?php Yii::app()->user->setFlash('success', '<strong>Well done!</strong> You have successfully created your Yii application.');?>
+<?php Yii::app()->user->setFlash('success', '<strong>Hello!</strong> This site is currently under active development, you may experience some unexpected and inconsistent behaviour.');?>
 <?php $this->widget('bootstrap.widgets.TbAlert'); ?>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <tt><?php echo __FILE__; ?></tt></li>
-	<li>Layout file: <tt><?php echo $this->getLayoutFile('main'); ?></tt></li>
-</ul>
+<p>Use the menu above to navigate current functionality.</p>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<h2>Task tracker:</h2>
 
 <?php
 
-$gridDataProvider = new CArrayDataProvider(array(
-	array('id'=>1, 'firstName'=>'Mark', 'lastName'=>'Otto', 'language'=>'CSS'),
-	array('id'=>2, 'firstName'=>'Jacob', 'lastName'=>'Thornton', 'language'=>'JavaScript'),
-	array('id'=>3, 'firstName'=>'Stu', 'lastName'=>'Dent', 'language'=>'HTML'),
+$this->widget('bootstrap.widgets.TbProgress', array(
+    'type'=>'success', // 'info', 'success' or 'danger'
+    'percent'=>(13/33)*100,
+	'striped'=>true
 ));
 
 ?>
-<?php $this->widget('bootstrap.widgets.TbGridView', array(
-	'type'=>'striped bordered condensed',
-	'dataProvider'=>$gridDataProvider,
-	'template'=>"{items}",
-	'columns'=>array(
-		array('name'=>'id', 'header'=>'#'),
-		array('name'=>'firstName', 'header'=>'First name'),
-		array('name'=>'lastName', 'header'=>'Last name'),
-		array('name'=>'language', 'header'=>'Language'),
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'viewButtonUrl'=>'Yii::app()->controller->createUrl("view",array("id"=>$data["id"]))',
-			'updateButtonUrl'=>'Yii::app()->controller->createUrl("update",array("id"=>$data["id"]))',
-			'deleteButtonUrl'=>'Yii::app()->controller->createUrl("delete",array("id"=>$data["id"]))',
-			'htmlOptions'=>array('style'=>'width: 50px'),
-		),
-	),
-)); ?>
+
+<ol>
+	<li class="complete">Setup dev environment</li>
+	<li class="complete">Build templates</li>
+	<li class="complete">Configure app structure</li>
+	<span class="milestone label label-info complete">Initial setup complete</span>
+	<li class="complete">Code and configure database transactions</li>
+	<li class="complete">User record management</li>
+	<li class="complete">Contact record management</li>
+	<li class="complete">Task record management and relationship mapping</li>
+	<li class="complete">Setup staging environment</li>
+	<span class="milestone label label-info complete">Database build complete</span>
+	<li class="complete">Company record management</li>
+	<li class="complete">Contact/Company attributes</li>
+	<li class="complete">Address, Phone and Email fields</li>
+	<li class="complete">Map data relationships</li>
+	<li class="complete">Related data assignment functions</li>
+	<li class="complete">Create/update date/time and user logs for all records</li>
+	<li>User ip logging behaviours</li>
+	<li>Campaign functions</li>
+	<span class="milestone label label-info">Core DB structuring complete</span>
+	<li>Layout dashboard and company view</li>
+	<li>Implement chosen.js plugin</li>
+	<li>Commenting engine</li>
+	<li>Bulk edit function</li>
+	<li>Email notification system</li>
+	<li>Search function</li>
+	<li>User access controls</li>
+	<span class="milestone label label-info">Core functional and layout coding complete</span>
+	<li>Multi-sort function</li>
+	<li>Contact and Company lookup function</li>
+	<li>Reporting functionality</li>
+	<li>CSV Export function</li>
+	<li>Backup and restore function</li>
+	<span class="milestone label label-info">Pre-release</span>
+	<li>Cleanse and import data</li>
+	<li>Write and run unit tests</li>
+	<li>Logging system</li>
+	<li>Error handling</li>
+	<span class="milestone label label-success">Beta Release</span>
+	<li>Pre-production caching configuration</li>
+	<li>Performance tuning</li>
+</ol>
+
+<h3>Post install</h3>
+
+<ol>
+	<li>First and second name lookup function</li>
+	<li>Add option function</li>
+	<li>User forgotton password function</li>
+</ol>
+
+<p>For further details, please contact <a href="mailto:info@saphate.com">info@saphate.com</a>.</p>
+

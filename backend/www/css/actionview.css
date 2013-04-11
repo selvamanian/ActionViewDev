@@ -1,0 +1,6 @@
+.complete {text-decoration: line-through;}
+.milestone {line-height: 2em !important; font-size: 1.2em !important;}
+.vContact {padding: 2% 5%;margin: 5%;background-color: #eee;}
+ul.contact, ul.contact li {margin-left: 0;list-style: none;}
+ul.contact li { margin-bottom: 0.1em;}
+ul.contact li.user { margin-bottom: 2em;}
