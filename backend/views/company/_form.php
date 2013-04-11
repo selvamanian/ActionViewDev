@@ -96,9 +96,9 @@
 		</div><!-- row -->
 */ ?>
 
-		<label><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></label>
+		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tblAttributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
-		<label><?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></label>
+		<h3><?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'contacts', GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true)); ?>
 
 <?php
