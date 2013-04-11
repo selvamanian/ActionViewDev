@@ -27,7 +27,7 @@
 		<?php echo $form->labelEx($model,'parent_id'); ?>
 		<?php // echo $form->dropDownList($model, 'parent_id', GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true))); ?>
 		<?php
-			$parentAttribute = GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true));
+			$parentAttribute = GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true, 'id=9 OR id=10 OR id=11 OR id=12'));
 			echo $form->dropDownList($model, 'parent_id', $parentAttribute, array('prompt'=>'-- Select --')); 
 		?> 
 		<?php echo $form->error($model,'parent_id'); ?>
