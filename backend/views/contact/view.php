@@ -37,6 +37,7 @@ $this->menu=array(
 'address4',
 'address5',
 'postcode',
+*/
 'region',
 array(
 			'name' => 'user',
@@ -48,6 +49,7 @@ array(
 			'type' => 'raw',
 			'value' => $model->company !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->company)), array('company/view', 'id' => GxActiveRecord::extractPkValue($model->company, true))) : null,
 			),
+/*
 'create_time',
 array(
 			'name' => 'createUser',
