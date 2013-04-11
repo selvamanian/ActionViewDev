@@ -59,11 +59,6 @@
 		<?php echo $form->error($model,'fax'); ?>
 		</div><!-- row -->
 		<div class="row">
-		<?php echo $form->labelEx($model,'link_company_address'); ?>
-		<?php echo $form->checkBox($model, 'link_company_address'); ?>
-		<?php echo $form->error($model,'link_company_address'); ?>
-		</div><!-- row -->
-		<div class="row">
 		<?php echo $form->labelEx($model,'address1'); ?>
 		<?php echo $form->textField($model, 'address1', array('maxlength' => 255)); ?>
 		<?php echo $form->error($model,'address1'); ?>
@@ -107,6 +102,11 @@
 		<?php echo $form->labelEx($model,'company_id'); ?>
 		<?php echo $form->dropDownList($model, 'company_id', GxHtml::listDataEx(Company::model()->findAllAttributes(null, true))); ?>
 		<?php echo $form->error($model,'company_id'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'link_company_address'); ?>
+		<?php echo $form->checkBox($model, 'link_company_address'); ?>
+		<?php echo $form->error($model,'link_company_address'); ?>
 		</div><!-- row -->
 <?php /*
 		<div class="row">
