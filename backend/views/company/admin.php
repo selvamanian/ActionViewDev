@@ -45,10 +45,10 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 		'id',
 		'name',
 		'notes',
+		/*
 		'telephone',
 		'fax',
 		'address1',
-		/*
 		'address2',
 		'address3',
 		'address4',

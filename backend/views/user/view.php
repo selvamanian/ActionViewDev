@@ -22,10 +22,13 @@ $this->menu=array(
 'id',
 'username',
 'password',
+/*
 'salt',
 'password_strategy',
 'requires_new_password:boolean',
+*/
 'email',
+/*
 'login_attempts',
 'login_time',
 'login_ip',
@@ -34,6 +37,7 @@ $this->menu=array(
 'create_time',
 'update_user_id',
 'update_time',
+*/
 	),
 )); ?>
 

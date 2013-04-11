@@ -33,6 +33,7 @@
 		<?php echo $form->textArea($model, 'notes'); ?>
 		<?php echo $form->error($model,'notes'); ?>
 		</div><!-- row -->
+<?php /*
 		<div class="row">
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->textField($model, 'create_time'); ?>
@@ -53,6 +54,7 @@
 		<?php echo $form->dropDownList($model, 'update_user_id', GxHtml::listDataEx(User::model()->findAllAttributes(null, true))); ?>
 		<?php echo $form->error($model,'update_user_id'); ?>
 		</div><!-- row -->
+*/ ?>
 
 		<label><?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></label>
 		<?php echo $form->checkBoxList($model, 'tasks', GxHtml::encodeEx(GxHtml::listDataEx(Task::model()->findAllAttributes(null, true)), false, true)); ?>

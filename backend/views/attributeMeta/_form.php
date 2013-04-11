@@ -19,7 +19,7 @@
 		<?php echo $form->error($model,'name'); ?>
 		</div><!-- row -->
 
-		<label><?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></label>
+		<h3><?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'attributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
 
 <?php

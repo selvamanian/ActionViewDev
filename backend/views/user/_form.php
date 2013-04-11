@@ -23,6 +23,7 @@
 		<?php echo $form->passwordField($model, 'password', array('maxlength' => 255)); ?>
 		<?php echo $form->error($model,'password'); ?>
 		</div><!-- row -->
+<?php /*
 		<div class="row">
 		<?php echo $form->labelEx($model,'salt'); ?>
 		<?php echo $form->textField($model, 'salt', array('maxlength' => 255)); ?>
@@ -38,11 +39,13 @@
 		<?php echo $form->checkBox($model, 'requires_new_password'); ?>
 		<?php echo $form->error($model,'requires_new_password'); ?>
 		</div><!-- row -->
+*/ ?>
 		<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model, 'email', array('maxlength' => 255)); ?>
 		<?php echo $form->error($model,'email'); ?>
 		</div><!-- row -->
+<?php /*
 		<div class="row">
 		<?php echo $form->labelEx($model,'login_attempts'); ?>
 		<?php echo $form->textField($model, 'login_attempts'); ?>
@@ -83,6 +86,7 @@
 		<?php echo $form->textField($model, 'update_time'); ?>
 		<?php echo $form->error($model,'update_time'); ?>
 		</div><!-- row -->
+*/ ?>
 
 
 <?php

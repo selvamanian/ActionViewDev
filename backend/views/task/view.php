@@ -39,6 +39,7 @@ array(
 			'type' => 'raw',
 			'value' => $model->campaign !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->campaign)), array('campaign/view', 'id' => GxActiveRecord::extractPkValue($model->campaign, true))) : null,
 			),
+/*
 'create_time',
 array(
 			'name' => 'createUser',
@@ -51,6 +52,7 @@ array(
 			'type' => 'raw',
 			'value' => $model->updateUser !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->updateUser)), array('user/view', 'id' => GxActiveRecord::extractPkValue($model->updateUser, true))) : null,
 			),
+*/
 	),
 )); ?>
 

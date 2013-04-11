@@ -54,13 +54,13 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 				'value'=>'GxHtml::valueEx($data->parent)',
 				'filter'=>GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)),
 				),
+		/*
 		'create_time',
 		array(
 				'name'=>'create_user_id',
 				'value'=>'GxHtml::valueEx($data->createUser)',
 				'filter'=>GxHtml::listDataEx(User::model()->findAllAttributes(null, true)),
 				),
-		/*
 		'update_time',
 		array(
 				'name'=>'update_user_id',

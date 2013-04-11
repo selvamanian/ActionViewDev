@@ -44,6 +44,7 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 	'columns' => array(
 		'id',
 		'username',
+		/*
 		'password',
 		'salt',
 		'password_strategy',
@@ -52,8 +53,9 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 					'value' => '($data->requires_new_password === 0) ? Yii::t(\'app\', \'No\') : Yii::t(\'app\', \'Yes\')',
 					'filter' => array('0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
 					),
-		/*
+*/
 		'email',
+/*
 		'login_attempts',
 		'login_time',
 		'login_ip',

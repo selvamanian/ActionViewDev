@@ -25,6 +25,7 @@ $this->menu=array(
 'salutation',
 'title',
 'notes',
+/*
 'telephone',
 'mobile',
 'switchboard',
@@ -59,6 +60,7 @@ array(
 			'type' => 'raw',
 			'value' => $model->updateUser !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->updateUser)), array('user/view', 'id' => GxActiveRecord::extractPkValue($model->updateUser, true))) : null,
 			),
+*/
 	),
 )); ?>
 

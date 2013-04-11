@@ -10,6 +10,7 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('notes')); ?>:
 	<?php echo GxHtml::encode($data->notes); ?>
 	<br />
+	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('telephone')); ?>:
 	<?php echo GxHtml::encode($data->telephone); ?>
 	<br />
@@ -22,7 +23,6 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('address2')); ?>:
 	<?php echo GxHtml::encode($data->address2); ?>
 	<br />
-	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('address3')); ?>:
 	<?php echo GxHtml::encode($data->address3); ?>
 	<br />

@@ -70,6 +70,7 @@
 		<?php echo $form->textField($model, 'website', array('maxlength' => 255)); ?>
 	</div>
 
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model, 'create_time'); ?>
 		<?php echo $form->textField($model, 'create_time'); ?>
@@ -89,6 +90,7 @@
 		<?php echo $form->label($model, 'update_user_id'); ?>
 		<?php echo $form->dropDownList($model, 'update_user_id', GxHtml::listDataEx(User::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
 	</div>
+*/ ?>
 
 	<div class="row buttons">
 		<?php echo GxHtml::submitButton(Yii::t('app', 'Search')); ?>

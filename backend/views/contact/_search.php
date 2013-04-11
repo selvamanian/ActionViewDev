@@ -35,6 +35,7 @@
 		<?php echo $form->textArea($model, 'notes'); ?>
 	</div>
 
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model, 'telephone'); ?>
 		<?php echo $form->textField($model, 'telephone', array('maxlength' => 255)); ?>
@@ -124,6 +125,7 @@
 		<?php echo $form->label($model, 'update_user_id'); ?>
 		<?php echo $form->dropDownList($model, 'update_user_id', GxHtml::listDataEx(User::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
 	</div>
+*/ ?>
 
 	<div class="row buttons">
 		<?php echo GxHtml::submitButton(Yii::t('app', 'Search')); ?>

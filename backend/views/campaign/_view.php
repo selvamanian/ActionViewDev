@@ -16,13 +16,13 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('notes')); ?>:
 	<?php echo GxHtml::encode($data->notes); ?>
 	<br />
+	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('create_time')); ?>:
 	<?php echo GxHtml::encode($data->create_time); ?>
 	<br />
 	<?php echo GxHtml::encode($data->getAttributeLabel('create_user_id')); ?>:
 		<?php echo GxHtml::encode(GxHtml::valueEx($data->createUser)); ?>
 	<br />
-	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('update_time')); ?>:
 	<?php echo GxHtml::encode($data->update_time); ?>
 	<br />

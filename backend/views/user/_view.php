@@ -7,6 +7,7 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('username')); ?>:
 	<?php echo GxHtml::encode($data->username); ?>
 	<br />
+<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('password')); ?>:
 	<?php echo GxHtml::encode($data->password); ?>
 	<br />
@@ -19,6 +20,7 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('requires_new_password')); ?>:
 	<?php echo GxHtml::encode($data->requires_new_password); ?>
 	<br />
+*/ ?>
 	<?php echo GxHtml::encode($data->getAttributeLabel('email')); ?>:
 	<?php echo GxHtml::encode($data->email); ?>
 	<br />

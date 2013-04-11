@@ -48,6 +48,7 @@
 		<?php echo $form->dropDownList($model, 'campaign_id', GxHtml::listDataEx(Campaign::model()->findAllAttributes(null, true))); ?>
 		<?php echo $form->error($model,'campaign_id'); ?>
 		</div><!-- row -->
+<?php /*
 		<div class="row">
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->textField($model, 'create_time'); ?>
@@ -68,6 +69,7 @@
 		<?php echo $form->dropDownList($model, 'update_user_id', GxHtml::listDataEx(User::model()->findAllAttributes(null, true))); ?>
 		<?php echo $form->error($model,'update_user_id'); ?>
 		</div><!-- row -->
+*/ ?>
 
 
 <?php

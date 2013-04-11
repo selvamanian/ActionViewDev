@@ -47,8 +47,8 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 		'type',
 		'asset',
 		'notes',
-		'create_time',
 		/*
+		'create_time',
 		array(
 				'name'=>'create_user_id',
 				'value'=>'GxHtml::valueEx($data->createUser)',

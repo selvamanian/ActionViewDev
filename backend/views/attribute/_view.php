@@ -13,6 +13,7 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('parent_id')); ?>:
 		<?php echo GxHtml::encode(GxHtml::valueEx($data->parent)); ?>
 	<br />
+	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('create_time')); ?>:
 	<?php echo GxHtml::encode($data->create_time); ?>
 	<br />
@@ -22,7 +23,6 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('update_time')); ?>:
 	<?php echo GxHtml::encode($data->update_time); ?>
 	<br />
-	<?php /*
 	<?php echo GxHtml::encode($data->getAttributeLabel('update_user_id')); ?>:
 		<?php echo GxHtml::encode(GxHtml::valueEx($data->updateUser)); ?>
 	<br />

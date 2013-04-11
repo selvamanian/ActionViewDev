@@ -15,16 +15,19 @@
 		<?php echo $form->textField($model, 'username', array('maxlength' => 45)); ?>
 	</div>
 
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model, 'salt'); ?>
 		<?php echo $form->textField($model, 'salt', array('maxlength' => 255)); ?>
 	</div>
+*/ ?>
 
 	<div class="row">
 		<?php echo $form->label($model, 'email'); ?>
 		<?php echo $form->textField($model, 'email', array('maxlength' => 255)); ?>
 	</div>
 
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model, 'login_attempts'); ?>
 		<?php echo $form->textField($model, 'login_attempts'); ?>
@@ -64,6 +67,7 @@
 		<?php echo $form->label($model, 'update_time'); ?>
 		<?php echo $form->textField($model, 'update_time'); ?>
 	</div>
+*/ ?>
 
 	<div class="row buttons">
 		<?php echo GxHtml::submitButton(Yii::t('app', 'Search')); ?>
