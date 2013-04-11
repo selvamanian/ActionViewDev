@@ -39,7 +39,7 @@ array(
 	),
 )); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></h2>
+<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->tasks as $relatedModel) {

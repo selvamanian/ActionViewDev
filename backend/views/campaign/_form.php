@@ -56,7 +56,7 @@
 		</div><!-- row -->
 */ ?>
 
-		<h3><?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></h3>
+		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tasks', GxHtml::encodeEx(GxHtml::listDataEx(Task::model()->findAllAttributes(null, true)), false, true)); ?>
 
 <?php

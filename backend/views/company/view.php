@@ -49,7 +49,7 @@ array(
 	),
 )); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h2>
+<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->tblAttributes as $relatedModel) {
@@ -58,7 +58,7 @@ array(
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h2>
+?><h3>Related <?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->contacts as $relatedModel) {

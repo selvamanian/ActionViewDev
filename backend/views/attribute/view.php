@@ -46,7 +46,7 @@ array(
 	),
 )); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h2>
+<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->attributes as $relatedModel) {
@@ -55,7 +55,7 @@ array(
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('tblCompanies')); ?></h2>
+?><h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblCompanies')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->tblCompanies as $relatedModel) {
@@ -64,7 +64,7 @@ array(
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('tblContacts')); ?></h2>
+?><h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblContacts')); ?></h3>
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->tblContacts as $relatedModel) {

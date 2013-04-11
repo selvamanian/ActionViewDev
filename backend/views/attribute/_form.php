@@ -56,12 +56,12 @@
 */ ?>
 
 <?php /*
-		<h3><?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h3>
+		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'attributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
 */ ?>
-		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblCompanies')); ?></h3>
+		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblCompanies')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tblCompanies', GxHtml::encodeEx(GxHtml::listDataEx(Company::model()->findAllAttributes(null, true)), false, true)); ?>
-		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblContacts')); ?></h3>
+		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblContacts')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tblContacts', GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true)); ?>
 
 <?php
