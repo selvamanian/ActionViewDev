@@ -23,19 +23,6 @@ abstract class BaseCompanyAttributeAssignment extends GxActiveRecord {
 		return 'tbl_company_attribute_assignment';
 	}
 
-	/**
-	 * Behaviors
-	 * @return array
-	 */
-	public function behaviors()
-	{
-		return array(
-			'BlameableBehavior' => array(
-			'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
-			),
-		);
-	}
-
 	public static function label($n = 1) {
 		return Yii::t('app', 'CompanyAttributeAssignment|CompanyAttributeAssignments', $n);
 	}

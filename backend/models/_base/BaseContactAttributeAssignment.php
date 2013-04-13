@@ -23,19 +23,6 @@ abstract class BaseContactAttributeAssignment extends GxActiveRecord {
 		return 'tbl_contact_attribute_assignment';
 	}
 
-	/**
-	 * Behaviors
-	 * @return array
-	 */
-	public function behaviors()
-	{
-		return array(
-			'BlameableBehavior' => array(
-			'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
-			),
-		);
-	}
-
 	public static function label($n = 1) {
 		return Yii::t('app', 'ContactAttributeAssignment|ContactAttributeAssignments', $n);
 	}
