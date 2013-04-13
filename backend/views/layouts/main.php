@@ -33,29 +33,35 @@
 		array(
 			'class' => 'bootstrap.widgets.TbMenu',
 			'items' => array(
-                array('label'=>'Contact', 'url'=>'/contact/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/contact/create'),
+                array('label'=>'Contact', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/contact/index'),
                     array('label'=>'Manage', 'url'=>'/contact/admin'),
+                    array('label'=>'Create', 'url'=>'/contact/create'),
                 )),
-                array('label'=>'Company', 'url'=>'/company/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/company/create'),
+                array('label'=>'Company', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/company/index'),
                     array('label'=>'Manage', 'url'=>'/company/admin'),
+                    array('label'=>'Create', 'url'=>'/company/create'),
                 )),
-                array('label'=>'Task', 'url'=>'/task/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/task/create'),
+                array('label'=>'Task', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/task/index'),
                     array('label'=>'Manage', 'url'=>'/task/admin'),
+                    array('label'=>'Create', 'url'=>'/task/create'),
                 )),
-                array('label'=>'Campaign', 'url'=>'/campaign/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/campaign/create'),
+                array('label'=>'Campaign', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/campaign/index'),
                     array('label'=>'Manage', 'url'=>'/campaign/admin'),
+                    array('label'=>'Create', 'url'=>'/campaign/create'),
                 )),
-                array('label'=>'Attribute', 'url'=>'/attribute/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/attribute/create'),
+                array('label'=>'Attribute', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/attribute/index'),
                     array('label'=>'Manage', 'url'=>'/attribute/admin'),
+                    array('label'=>'Create', 'url'=>'/attribute/create'),
                 )),
-                array('label'=>'Admin', 'url'=>'/user/', 'items'=>array(
-                    array('label'=>'Create', 'url'=>'/user/create'),
+                array('label'=>'Admin', 'url'=>'#', 'items'=>array(
+                    array('label'=>'List', 'url'=>'/user/index'),
                     array('label'=>'Manage', 'url'=>'/user/admin'),
+                    array('label'=>'Create', 'url'=>'/user/create'),
                 )),
 				// array('label' => 'Home', 'url' => array('/site/index')),
 				// array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
