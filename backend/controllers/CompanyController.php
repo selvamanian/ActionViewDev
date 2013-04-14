@@ -15,10 +15,9 @@ class CompanyController extends GxController {
 
 		if (isset($_POST['Company'])) {
 			$model->setAttributes($_POST['Company']);
-			$relatedData = false;
-			// $relatedData = array(
-			// 	'tblAttributes' => $_POST['Company']['tblAttributes'] === '' ? null : $_POST['Company']['tblAttributes'],
-			// 	);
+			$relatedData = array(
+				'tblAttributes' => $_POST['Company']['tblAttributes'] === '' ? null : $_POST['Company']['tblAttributes'],
+				);
 
 			if ($model->saveWithRelated($relatedData)) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -37,10 +36,9 @@ class CompanyController extends GxController {
 
 		if (isset($_POST['Company'])) {
 			$model->setAttributes($_POST['Company']);
-			$relatedData = false;
-			// $relatedData = array(
-			// 	'tblAttributes' => $_POST['Company']['tblAttributes'] === '' ? null : $_POST['Company']['tblAttributes'],
-			// 	);
+			$relatedData = array(
+				'tblAttributes' => $_POST['Company']['tblAttributes'] === '' ? null : $_POST['Company']['tblAttributes'],
+				);
 
 			if ($model->saveWithRelated($relatedData)) {
 				$this->redirect(array('view', 'id' => $model->id));
