@@ -10,6 +10,8 @@ class m130405_222651_add_users extends CDbMigration
 		$demoUser->username = "demo";
 		$demoUser->email = 'demo@saphate.com';
 		$demoUser->password = 'password';
+		$demoUser->create_time = new CDbExpression('NOW()');
+		$demoUser->update_time = new CDbExpression('NOW()');
 
 		$demoUser->save();
 
@@ -17,6 +19,8 @@ class m130405_222651_add_users extends CDbMigration
 		$adminUser->username = "admin";
 		$adminUser->email = 'admin@saphate.com';
 		$adminUser->password = 'password';
+		$adminUser->create_time = new CDbExpression('NOW()');
+		$adminUser->update_time = new CDbExpression('NOW()');
 
 		$adminUser->save();
 
