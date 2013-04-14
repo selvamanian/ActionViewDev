@@ -43,8 +43,11 @@ abstract class BaseAttribute extends GxActiveRecord {
 	public function behaviors()
 	{
 		return array(
+			'TimestampBehavior' => array(
+				'class' => 'root.common.extensions.behaviors.TimestampBehavior'
+			),
 			'BlameableBehavior' => array(
-			'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
+				'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
 			),
 		);
 	}
