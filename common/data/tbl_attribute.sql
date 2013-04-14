@@ -86,21 +86,15 @@ VALUES
 ( NULL ,  'Toys/Games',  '4', '27' ,  now(),  '6',  now(),  '6' ),
 ( NULL ,  'Sports/Outdoor',  '4', '27' ,  now(),  '6',  now(),  '6' ),
 
-( NULL ,  'Discipline',  '4', NULL ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'All',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Integrated',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Advertising',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'DM',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Digital',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Website',  '4', '76' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'POP',  '4', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Discipline',  '2', NULL ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'All',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Integrated',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Advertising',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'DM',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Digital',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Website',  '5', '76' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'POP',  '5', '76' ,  now(),  '6',  now(),  '6' ),
 
-( NULL ,  'Data Source',  '4', NULL ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Old',  '4', '84' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Alf',  '4', '84' ,  now(),  '6',  now(),  '6' ),
-
-
-
-
-
-
+( NULL ,  'Data Source',  '1', NULL ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Old',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Alf data Jan 2013',  '5', '84' ,  now(),  '6',  now(),  '6' );
