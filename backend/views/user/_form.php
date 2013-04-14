@@ -45,7 +45,7 @@
 		<?php echo $form->textField($model, 'email', array('maxlength' => 255)); ?>
 		<?php echo $form->error($model,'email'); ?>
 		</div><!-- row -->
-<?php /*
+
 		<div class="row">
 		<?php echo $form->labelEx($model,'login_attempts'); ?>
 		<?php echo $form->textField($model, 'login_attempts'); ?>
@@ -86,7 +86,7 @@
 		<?php echo $form->textField($model, 'update_time'); ?>
 		<?php echo $form->error($model,'update_time'); ?>
 		</div><!-- row -->
-*/ ?>
+
 
 
 <?php
