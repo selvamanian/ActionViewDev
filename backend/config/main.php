@@ -61,7 +61,6 @@ return CMap::mergeArray(
 			'application.controllers.*',
 			'application.models.*',
 			'ext.giix-components.*', // giix components
-			'ext.select2.Select2',
 		),
 		/* uncomment and set if required */
 		// @see http://www.yiiframework.com/doc/api/1.1/CModule#setModules-detail
