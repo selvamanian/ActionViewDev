@@ -27,7 +27,7 @@
 		<?php echo $form->labelEx($model,'parent_id'); ?>
 		<?php // echo $form->dropDownList($model, 'parent_id', GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true))); ?>
 		<?php
-			$parentAttribute = GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(array('id','parent.name','parent.id'),true,array('condition'=>'attributeMeta.id IN (7,8,13)','order'=>'t.parent_id asc, t.id asc') ));
+			$parentAttribute = GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(array('id','parent.name','parent.id'),true,array('condition'=>'attributeMeta.id IN (1,2,3)','order'=>'t.parent_id asc, t.id asc') ));
 			echo $form->dropDownList($model, 'parent_id', $parentAttribute, array('prompt'=>'-- Select --'));
 		?> 
 		<?php echo $form->error($model,'parent_id'); ?>

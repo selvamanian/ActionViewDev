@@ -133,7 +133,7 @@
 
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
 		<?php
-			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'attributeMeta.id=17','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
+			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'attributeMeta.id IN (5)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
 			echo $form->dropDownList($model, 'tblAttributes', $relatedAttribute, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
 		?>
 
