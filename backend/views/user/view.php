@@ -21,8 +21,8 @@ $this->menu=array(
 	'attributes' => array(
 'id',
 'username',
-'password',
 /*
+'password',
 'salt',
 'password_strategy',
 'requires_new_password:boolean',
