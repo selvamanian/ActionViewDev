@@ -132,9 +132,11 @@
 */ ?>
 
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
-		<?php echo $form->checkBoxList($model, 'tblAttributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
-		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tasks')); ?></h3>
-		<?php echo $form->checkBoxList($model, 'tasks', GxHtml::encodeEx(GxHtml::listDataEx(Task::model()->findAllAttributes(null, true)), false, true)); ?>
+		<?php
+			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'attributeMeta.id=10','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
+			echo $form->dropDownList($model, 'tblAttributes', $relatedAttribute, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
+		?>
+
 
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));

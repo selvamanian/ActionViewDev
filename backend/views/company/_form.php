@@ -96,10 +96,17 @@
 		</div><!-- row -->
 */ ?>
 
-		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
-		<?php echo $form->checkBoxList($model, 'tblAttributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
-		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h3>
-		<?php echo $form->checkBoxList($model, 'contacts', GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true)); ?>
+		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
+		<?php
+			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'attributeMeta.id=10','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
+			echo $form->dropDownList($model, 'tblAttributes', $relatedAttribute, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
+		?>
+
+		<h3><?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h3>
+		<?php
+			$relatedContact = GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true);
+			echo $form->dropDownList($model, 'contacts', $relatedContact, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
+		?>
 
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));
