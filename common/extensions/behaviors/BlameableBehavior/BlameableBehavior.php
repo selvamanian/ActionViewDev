@@ -1,52 +1,40 @@
 <?php
 /**
- * BlameableBehavior class file.
+ * Logs to every row who created and who updated it. This may interests you when working in a group of
+ * more people sharing same privileges.
  *
- * @link http://www.yiiframework.com/forum/index.php/topic/31042-auto-timestamp-and-user-on-record-modification/
+ * @copyright mintao GmbH & Co. KG
+ * @author Florian Fackler <florian.fackler@mintao.com>
+ * @license MIT <http://www.opensource.org/licenses/mit-license.php>
+ * @package Yii framework
+ * @subpackage db-behavior
+ * @version 0.1 Beta
  */
 
- /**
- * BlameableBehavior will automatically fill date and time related atributes when the active record
- * is created and/or upadated.
- */
+class BlameableBehavior extends CActiveRecordBehavior
+{
+    /**
+     * @param string $createdByColumn Name of the column in the table where to write the creater user name
+     */
+    public $createdByColumn = 'create_user_id';
+
+    /**
+     * @param string $updatedByColumn Name of the column in the table where to write the updater user name
+     */
+    public $updatedByColumn = 'update_user_id';
 
 
-class BlameableBehavior extends CActiveRecordBehavior {
-
-    function beforeSave( $event ) {
-        $owner = $this->getOwner();
-        $user = Yii::app()->user;
-        if( $owner->getIsNewRecord() ) {
-            $owner->create_time = date( 'Y-m-d H:i:s' );
-            $owner->create_user_id = $user !== null ? intval( $user->id ) : 0;
-        }else{
-            $owner->create_time = DateTime::createFromFormat('d-m-Y', $owner->create_time)->format('Y-m-d H:i:s');          
-        }
-        $owner->update_time = date( 'Y-m-d H:i:s' );
-        $owner->update_user_id = $user !== null ? intval( $user->id ) : 0;
-    }
-
-    function afterFind( $event )
+    public function beforeValidate($event)
     {
-        // convert to display format
-        $owner = $this->getOwner();
-
-        if($owner->create_time == '' || $owner->create_time == null){
-            $owner->create_time = null;
-        } else {
-            $owner->create_time = DateTime::createFromFormat('Y-m-d H:i:s', $owner->create_time)->format('d-m-Y');          
+        if(isset(Yii::app()->user)) {
+            $availableColumns = array_keys($this->owner->tableSchema->columns);
+            if($this->owner->isNewRecord && empty($this->owner->{$this->createdByColumn}))
+                if(in_array($this->createdByColumn, $availableColumns))
+                    $this->owner->{$this->createdByColumn} = Yii::app()->user->id;
+            // if(empty($this->owner->{$this->updatedByColumn}))
+                if(in_array($this->updatedByColumn, $availableColumns))
+                    $this->owner->{$this->updatedByColumn} = Yii::app()->user->id;
         }
-
-        if($owner->update_time == '' || $owner->update_time == null){
-            $owner->update_time = null;
-        } else {
-            $owner->update_time = DateTime::createFromFormat('Y-m-d H:i:s', $owner->update_time)->format('d-m-Y');          
-        }
-
+        return parent::beforeValidate($event);
     }
-
-
 }
-
-
-?>

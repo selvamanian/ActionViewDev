@@ -82,8 +82,11 @@ abstract class BaseUser extends GxActiveRecord {
 					)
 				),
 			),
+			'TimestampBehavior' => array(
+				'class' => 'root.common.extensions.behaviors.TimestampBehavior'
+			),
 			'BlameableBehavior' => array(
-			'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
+				'class' => 'root.common.extensions.behaviors.BlameableBehavior.BlameableBehavior'
 			),
 		);
 	}
@@ -103,7 +106,7 @@ abstract class BaseUser extends GxActiveRecord {
 			array('email', 'email'),
 			array('username, email', 'unique'),
 			array('passwordConfirm', 'compare', 'compareAttribute' => 'newPassword', 'message' => Yii::t('validation', "Passwords don't match")),
-			array('newPassword, password_strategy ', 'length', 'max' => 50, 'min' => 8),
+			array('newPassword, password ', 'length', 'max' => 50, 'min' => 8),
 			array('email, password, salt', 'length', 'max' => 255),
 			array('requires_new_password, login_attempts', 'numerical', 'integerOnly' => true),
 			// The following rule is used by search().
