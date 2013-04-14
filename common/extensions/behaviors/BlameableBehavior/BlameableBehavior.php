@@ -19,6 +19,8 @@ class BlameableBehavior extends CActiveRecordBehavior {
         if( $owner->getIsNewRecord() ) {
             $owner->create_time = date( 'Y-m-d H:i:s' );
             $owner->create_user_id = $user !== null ? intval( $user->id ) : 0;
+        }else{
+            $owner->create_time = DateTime::createFromFormat('d-m-Y', $owner->create_time)->format('Y-m-d H:i:s');          
         }
         $owner->update_time = date( 'Y-m-d H:i:s' );
         $owner->update_user_id = $user !== null ? intval( $user->id ) : 0;
