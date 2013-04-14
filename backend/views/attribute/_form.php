@@ -27,8 +27,8 @@
 		<?php echo $form->labelEx($model,'parent_id'); ?>
 		<?php // echo $form->dropDownList($model, 'parent_id', GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true))); ?>
 		<?php
-			$parentAttribute = GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true));
-			echo $form->dropDownList($model, 'parent_id', $parentAttribute, array('prompt'=>'-- Select --')); 
+			$parentAttribute = GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(array('id','parent.name','parent.id'),true,array('condition'=>'attributeMeta.id NOT IN (10)','order'=>'t.parent_id asc, t.id asc') ));
+			echo $form->dropDownList($model, 'parent_id', $parentAttribute, array('prompt'=>'-- Select --'));
 		?> 
 		<?php echo $form->error($model,'parent_id'); ?>
 		</div><!-- row -->
@@ -58,11 +58,11 @@
 <?php /*
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('attributes')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'attributes', GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->findAllAttributes(null, true)), false, true)); ?>
-*/ ?>
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblCompanies')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tblCompanies', GxHtml::encodeEx(GxHtml::listDataEx(Company::model()->findAllAttributes(null, true)), false, true)); ?>
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblContacts')); ?></h3>
 		<?php echo $form->checkBoxList($model, 'tblContacts', GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true)); ?>
+*/ ?>
 
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));

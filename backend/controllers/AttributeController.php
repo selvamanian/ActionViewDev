@@ -15,10 +15,11 @@ class AttributeController extends GxController {
 
 		if (isset($_POST['Attribute'])) {
 			$model->setAttributes($_POST['Attribute']);
-			$relatedData = array(
-				'tblCompanies' => $_POST['Attribute']['tblCompanies'] === '' ? null : $_POST['Attribute']['tblCompanies'],
-				'tblContacts' => $_POST['Attribute']['tblContacts'] === '' ? null : $_POST['Attribute']['tblContacts'],
-				);
+			$relatedData = false;
+			// $relatedData = array(
+			// 	'tblCompanies' => $_POST['Attribute']['tblCompanies'] === false ? null : $_POST['Attribute']['tblCompanies'],
+			// 	'tblContacts' => $_POST['Attribute']['tblContacts'] === '' ? null : $_POST['Attribute']['tblContacts'],
+			// 	);
 
 			if ($model->saveWithRelated($relatedData)) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
