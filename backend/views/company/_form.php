@@ -97,6 +97,7 @@
 */ ?>
 
 		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
+		<p>Hold down the ctrl key to make multiple selections (use the cmd key on macs).</p>
 		<?php
 			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'attributeMeta.id IN (4)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
 			echo $form->dropDownList($model, 'tblAttributes', $relatedAttribute, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
