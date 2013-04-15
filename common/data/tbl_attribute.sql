@@ -95,6 +95,26 @@ VALUES
 ( NULL ,  'Website',  '5', '76' ,  now(),  '6',  now(),  '6' ),
 ( NULL ,  'POP',  '5', '76' ,  now(),  '6',  now(),  '6' ),
 
+( NULL ,  'Temperature',  '1', NULL ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Hot (1-3 month opportunity)',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Warm (3-6 month opportunity)',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Cool (6-12 month opportunity)',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Cold (no interest)',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Still to contact',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Speculative Meeting',  '5', '84' ,  now(),  '6',  now(),  '6' ),
+
+( NULL ,  'Estimated Fees',  '1', NULL ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Less than 50k',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Up to 100k',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Up to 250k',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Up to 500k',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Up to 1m',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'More than 1m',  '5', '91' ,  now(),  '6',  now(),  '6' ),
+
+( NULL ,  'Contact Preferences',  '2', NULL ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Mail Only',  '5', '98' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Met Contact',  '5', '98' ,  now(),  '6',  now(),  '6' ),
+
 ( NULL ,  'Data Source',  '1', NULL ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Old',  '5', '84' ,  now(),  '6',  now(),  '6' ),
-( NULL ,  'Alf data Jan 2013',  '5', '84' ,  now(),  '6',  now(),  '6' );
+( NULL ,  'Old',  '5', '101' ,  now(),  '6',  now(),  '6' ),
+( NULL ,  'Alf data Jan 2013',  '5', '101' ,  now(),  '6',  now(),  '6' );
