@@ -29,7 +29,7 @@ class ContactController extends GxController {
 
 		$this->render('create', array( 
 			'model' => $model,
-			'modelCompany' => $this->loadModel('7', 'Company'),
+//			'modelCompany' => $this->loadModel('7', 'Company'),
 			)
 		);
 	}

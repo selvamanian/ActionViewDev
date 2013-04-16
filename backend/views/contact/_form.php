@@ -68,41 +68,44 @@
 		<?php echo $form->checkBox($model, 'link_company_address'); ?>
 		<?php echo $form->error($model,'link_company_address'); ?>
 		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'address1'); ?>
-		<?php echo $form->textField($model, 'address1', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'address1'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'address2'); ?>
-		<?php echo $form->textField($model, 'address2', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'address2'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'address3'); ?>
-		<?php echo $form->textField($model, 'address3', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'address3'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'address4'); ?>
-		<?php echo $form->textField($model, 'address4', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'address4'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'address5'); ?>
-		<?php echo $form->textField($model, 'address5', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'address5'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'postcode'); ?>
-		<?php echo $form->textField($model, 'postcode', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'postcode'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'region'); ?>
-		<?php echo $form->textField($model, 'region', array('maxlength' => 255)); ?>
-		<?php echo $form->error($model,'region'); ?>
-		</div><!-- row -->
+		<div id="alert_placeholder"></div>
+		<div id="addressContainer">
+			<div class="row">
+			<?php echo $form->labelEx($model,'address1'); ?>
+			<?php echo $form->textField($model, 'address1', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'address1'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'address2'); ?>
+			<?php echo $form->textField($model, 'address2', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'address2'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'address3'); ?>
+			<?php echo $form->textField($model, 'address3', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'address3'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'address4'); ?>
+			<?php echo $form->textField($model, 'address4', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'address4'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'address5'); ?>
+			<?php echo $form->textField($model, 'address5', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'address5'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'postcode'); ?>
+			<?php echo $form->textField($model, 'postcode', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'postcode'); ?>
+			</div><!-- row -->
+			<div class="row">
+			<?php echo $form->labelEx($model,'region'); ?>
+			<?php echo $form->textField($model, 'region', array('maxlength' => 255)); ?>
+			<?php echo $form->error($model,'region'); ?>
+			</div><!-- row -->
+		</div>
 		<div class="row">
 		<?php echo $form->labelEx($model,'user_id'); ?>
 		<?php echo $form->dropDownList($model, 'user_id', GxHtml::listDataEx(User::model()->findAllAttributes(null, true))); ?>
