@@ -18,3 +18,14 @@ $this->renderPartial('_form', array(
 		'model' => $model,
 		'buttons' => 'create'));
 ?>
+
+<div id="data">
+   <?php $this->renderPartial('_ajaxCompanyAddress', array(
+		'data' => $modelCompany,
+   )); ?>
+</div>
+ 
+<?php echo CHtml::ajaxButton ("Update data",
+                              CController::createUrl('contact/UpdateAjax&id=8'), 
+                              array('update' => '#data'));
+?>

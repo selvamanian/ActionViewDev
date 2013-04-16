@@ -27,8 +27,13 @@ class ContactController extends GxController {
 			}
 		}
 
-		$this->render('create', array( 'model' => $model));
+		$this->render('create', array( 
+			'model' => $model,
+			'modelCompany' => $this->loadModel('7', 'Company'),
+			)
+		);
 	}
+
 
 	public function actionUpdate($id) {
 		$model = $this->loadModel($id, 'Contact');
@@ -61,7 +66,9 @@ class ContactController extends GxController {
 	}
 
 	public function actionIndex() {
+
 		$dataProvider = new CActiveDataProvider('Contact');
+
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
@@ -78,5 +85,12 @@ class ContactController extends GxController {
 			'model' => $model,
 		));
 	}
+
+
+    public function actionUpdateAjax($id)
+    {
+        $modelCompany = $this->loadModel($id, 'Company');
+        $this->renderPartial('_ajaxCompanyAddress', $modelCompany, false, false);
+    }
 
 }
