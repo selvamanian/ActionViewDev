@@ -6,19 +6,6 @@
 		<li class="title"><?php echo GxHtml::encode($data->company->name); ?></li>
 		<li class="phone"><?php echo GxHtml::encode($data->company->telephone); ?></li>
 		<li class="met">Met contact:</li>
-
-<?php
-
-$this->widget('bootstrap.widgets.TbButtonGroup', array(
-    'type' => 'primary',
-    'toggle' => 'radio',
-    'buttons' => $data->tblAttributes,
-));
-
-var_dump($data->tblAttributes);
-
-?>
-
 		<li class="value">Value dropdown</li>
 		<li class="nextActionDate">Next action date</li>
 		<li class="nextActionTask">Next action task</li>
