@@ -54,7 +54,7 @@ array(
 	echo GxHtml::openTag('ul');
 	foreach($model->tblAttributes as $relatedModel) {
 		echo GxHtml::openTag('li');
-		echo GxHtml::valueEx($relatedModel->with('parent'), 'parent.name');
+		echo GxHtml::valueEx($relatedModel, 'parent.name');
 		echo ': ';
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('attribute/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');

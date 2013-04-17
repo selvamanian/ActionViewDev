@@ -60,7 +60,7 @@
 		</div><!-- row -->
 		<div class="row">
 		<?php echo $form->labelEx($model,'company_id'); ?>
-		<?php echo $form->dropDownList($model, 'company_id', GxHtml::listDataEx(Company::model()->findAllAttributes(null, true))); ?>
+		<?php echo $form->dropDownList($model, 'company_id', GxHtml::listDataEx(Company::model()->findAllAttributes(null, true)), array('prompt'=> '-- Select --')); ?>
 		<?php echo $form->error($model,'company_id'); ?>
 		</div><!-- row -->
 		<div class="row">
