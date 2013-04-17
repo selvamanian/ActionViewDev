@@ -137,7 +137,14 @@ class SiteController extends Controller
 	 */
 	public function actionDashboard()
 	{
-		$dataProvider = new CActiveDataProvider('Company');
+		$dataProvider = new CActiveDataProvider('Contact', array(
+			'criteria' => array(
+				'with' => array('company'),
+				'with' => array('tblAttributes'),
+				'with' => array('user'),
+				'with' => array('tasks'),
+			),
+		));
 		$this->render('dashboard', array(
 			'dataProvider' => $dataProvider,
 		));

@@ -1,26 +1,39 @@
-<div class="span4">
-	<ul class="contactDetails">
+<div class="span4 <?php echo $index%3 ? : 'newRow' ?>">
+	<ul class="contactDetails unstyled">
 		<li class="contactName">
-			<h2><?php echo GxHtml::encode($data->name); ?></h2>
+			<h2><?php echo GxHtml::encode($data->company->name); ?></h2>
 		</li>
-		<li class="title"><?php echo GxHtml::encode($data->name); ?></li>
-		<li class="phone"><?php echo GxHtml::encode($data->telephone); ?></li>
-		<li class="met">Met contact</li>
+		<li class="title"><?php echo GxHtml::encode($data->company->name); ?></li>
+		<li class="phone"><?php echo GxHtml::encode($data->company->telephone); ?></li>
+		<li class="met">Met contact:</li>
+
+<?php
+
+$this->widget('bootstrap.widgets.TbButtonGroup', array(
+    'type' => 'primary',
+    'toggle' => 'radio',
+    'buttons' => $data->tblAttributes,
+));
+
+var_dump($data->tblAttributes);
+
+?>
+
 		<li class="value">Value dropdown</li>
 		<li class="nextActionDate">Next action date</li>
 		<li class="nextActionTask">Next action task</li>
 		<li class="notes">
-			<p><?php echo GxHtml::encode($data->notes); ?></p>
+			<p><?php echo GxHtml::encode($data->company->notes); ?></p>
 		</li>
 		<li class="newCommentBtn">
 			<a href="#">Add comment</a>
 		</li>
 	</ul>
-	<ul class="companyDetails">
+	<ul class="companyDetails unstyled">
 		<li class="companyName">
 			<h3>Heading3</h3>
 		</li>
-		<li class="webAddress"><?php echo GxHtml::encode($data->website); ?></li>
+		<li class="webAddress"><?php echo GxHtml::encode($data->company->website); ?></li>
 		<li class="phone">01273 123213</li>
 		<li class="sector">Sector dropdown</li>
 		<li class="subSector">Sub-sector</li>

@@ -4,3 +4,5 @@
 ul.contact, ul.contact li {margin-left: 0;list-style: none;}
 ul.contact li { margin-bottom: 0.1em;}
 ul.contact li.user { margin-bottom: 2em;}
+
+.row-fluid .newRow {margin-left: 0;}
