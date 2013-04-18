@@ -12,60 +12,61 @@ $this->breadcrumbs = array(
 
 
 	<div class="row-fluid">
-		<div class="span2">
-			<a class="btn btn-primary btn-large">This is the start point &raquo;</a>
-		</div>
-		<div class="span2">
-			<a class="btn btn-primary btn-large">After that go here next &raquo;</a>
+
+		<div class="span5">
+<?php
+
+$this->widget('bootstrap.widgets.TbButtonGroup', array(
+	'type'=>'primary',
+	'size' => 'large',
+    'buttons'=>array(
+	    array('label'=>'Add Company »', 'url'=>'/company/create'),
+	    array('label'=>'Add Campaign »', 'url'=>'/campaign/create')
+    ),
+));
+
+?>
 		</div>
 		<div class="span4">
-			<form class="navbar-search">
-				<input type="text" class="search-query" placeholder="Search">
-			</form>
+<?php $model = Contact::model(); ?>
+<?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+	'id'=>'searchForm',
+	'type'=>'search',
+	'htmlOptions'=>array('class'=>'typeahead'),
+)); ?>
+<?php
+	echo $form->textFieldRow($model, 'firstname',
+		array('class'=>'input-medium', 'prepend'=>'<i class="icon-search"></i>'));
+?>
+<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Go')); ?>
+ 
+<?php $this->endWidget(); ?>
 		</div>
-		<div class="btn-toolbar pull-right">
+		<div class="span3 btn-toolbar pull-right">
 
-			<div class="btn-group">
-				<a href="#" class="btn btn-primary dropdown-toggle" id="drop2" data-toggle="dropdown">
-					Dropdown <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu pull-right" id="drop2" role="menu" aria-labelledby="dLabel" data-target="#">
-					<li>
-						<a tabindex="-1" href="#">Action</a>
-					</li>
-					<li>
-						<a tabindex="-1" href="#">Another action</a>
-					</li>
-					<li>
-						<a tabindex="-1" href="#">Something else here</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a tabindex="-1" href="#">Separated link</a>
-					</li>
-				</ul>
-			</div>
-			<div class="btn-group">
-				<a href="#" class="btn btn-primary dropdown-toggle" id="drop2" data-toggle="dropdown">
-					Dropdown
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu pull-right" id="drop3" role="menu" aria-labelledby="dLabel" data-target="#">
-					<li>
-						<a tabindex="-1" href="#">Action</a>
-					</li>
-					<li>
-						<a tabindex="-1" href="#">Another action</a>
-					</li>
-					<li>
-						<a tabindex="-1" href="#">Something else here</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a tabindex="-1" href="#">Separated link</a>
-					</li>
-				</ul>
-			</div>
+<?php
+        $arr = array();
+        foreach($model as $value) {
+                array_push($arr, array(
+                        // 'label'=>$value->notes, 
+                        'url'=>'#',
+                        'linkOptions'=>array(
+                        'ajax' => array(
+                                'type'=>'POST',
+                                'url'=>CController::createUrl('contact/UpdateAjax'),
+                                // 'data'=>array('id'=>$value->id),
+                                'success'=>'function(response) {
+                                                oData = response.split("|");
+                                        $("#outlet").html(oData[0]);
+                                                        $("#stmnt_total").html(oData[1]+","+oData[2]+","+oData[3]+","+oData[4]+","+oData[5]);
+                                        $.fn.yiiGridView.update("sales-statement-grid", {data: $(this).serialize()});
+                     }',
+                                )
+                        ),
+                ));
+        }
+?>
+
 		</div>
 	</div>
 	<h2>Selector Engine</h2>
