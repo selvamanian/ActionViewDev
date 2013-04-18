@@ -1,17 +1,28 @@
 <div class="span4 <?php echo $index%3 ? : 'newRow' ?>">
 	<ul class="contactDetails unstyled">
 		<li class="contactName">
-			<h2><?php echo GxHtml::encode($data->company->name); ?></h2>
+			<h2><?php echo GxHtml::encode($data->firstname.' '.$data->lastname); ?></h2>
 		</li>
 		<li class="title"><?php echo GxHtml::encode($data->company->name); ?></li>
-		<li class="phone"><?php echo GxHtml::encode($data->company->telephone); ?></li>
-		<li class="met">Met contact:</li>
-		<li class="value">Value dropdown</li>
+		<li class="phone"><?php echo GxHtml::encode($data->telephone); ?></li>
+		<!-- <li class="met">Met contact:</li> -->
+		<!-- <li class="value">Value dropdown</li> -->
 		<li class="nextActionDate">Next action date</li>
 		<li class="nextActionTask">Next action task</li>
 		<li class="notes">
-			<p><?php echo GxHtml::encode($data->company->notes); ?></p>
+			<p><?php echo GxHtml::encode($data->notes); ?></p>
 		</li>
+
+<?php
+	foreach($data->tblAttributes as $relatedModel) {
+		echo GxHtml::openTag('li');
+		echo GxHtml::valueEx($relatedModel, 'parent.name');
+		echo ': ';
+		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('attribute/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
+		echo GxHtml::closeTag('li');
+	}
+?>
+
 		<li class="newCommentBtn">
 			<a href="#">Add comment</a>
 		</li>
@@ -28,6 +39,15 @@
 		<li class="priority">Low</li>
 		<li class="discipline">Integrated</li>
 		<li class="businessType">Prospect</li>
+<?php
+	foreach($data->company->tblAttributes as $relatedModel) {
+		echo GxHtml::openTag('li');
+		echo GxHtml::valueEx($relatedModel, 'parent.name');
+		echo ': ';
+		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('attribute/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
+		echo GxHtml::closeTag('li');
+	}
+?>
 		<li class="companyActionsMenu">
 			<img class="addContacts" src="#" width="25" height="25" />
 			<img class="viewContacts" src="#" width="25" height="25" />
