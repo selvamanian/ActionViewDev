@@ -8,7 +8,7 @@ $this->breadcrumbs = array(
 
 <div class="hero-unit">
 	<h1>Dashboard</h1>
-	<p>Lorem...</p>
+	<p>Work in progress...</p>
 
 
 	<div class="row-fluid">
@@ -27,48 +27,50 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 
 ?>
 		</div>
-		<div class="span4">
+
+<?php
+		// todo: Add search field here
+?>
+
+<?php /*
+		<div class="span2 pull-right">
+
 <?php $model = Contact::model(); ?>
-<?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-	'id'=>'searchForm',
-	'type'=>'search',
-	'htmlOptions'=>array('class'=>'typeahead'),
-)); ?>
 <?php
-	echo $form->textFieldRow($model, 'firstname',
-		array('class'=>'input-medium', 'prepend'=>'<i class="icon-search"></i>'));
-?>
-<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Go')); ?>
- 
-<?php $this->endWidget(); ?>
-		</div>
-		<div class="span3 btn-toolbar pull-right">
 
+$companies=Company::model()->findAll();
+
+$this->widget('bootstrap.widgets.TbSelect2', array(
+	'asDropDownList' => true,
+	'name' => 'companyLookupDropdown',
+	'data' => $companies,
+	'options' => array(
+		'placeholder' => 'Please select',
+		'width' => '100%',
+)));
+?>
+		</div>
+		<div class="span2 pull-right">
 <?php
-        $arr = array();
-        foreach($model as $value) {
-                array_push($arr, array(
-                        // 'label'=>$value->notes, 
-                        'url'=>'#',
-                        'linkOptions'=>array(
-                        'ajax' => array(
-                                'type'=>'POST',
-                                'url'=>CController::createUrl('contact/UpdateAjax'),
-                                // 'data'=>array('id'=>$value->id),
-                                'success'=>'function(response) {
-                                                oData = response.split("|");
-                                        $("#outlet").html(oData[0]);
-                                                        $("#stmnt_total").html(oData[1]+","+oData[2]+","+oData[3]+","+oData[4]+","+oData[5]);
-                                        $.fn.yiiGridView.update("sales-statement-grid", {data: $(this).serialize()});
-                     }',
-                                )
-                        ),
-                ));
-        }
+
+$contacts=Contact::model()->findAll();
+
+$this->widget('bootstrap.widgets.TbSelect2', array(
+	'asDropDownList' => true,
+	'name' => 'contactLookupDropdown',
+	'data' => $contacts,
+	'options' => array(
+		'placeholder' => 'Please select',
+		'width' => '100%',
+)));
+
 ?>
 
 		</div>
+*/ ?>
+
 	</div>
+<!-- 
 	<h2>Selector Engine</h2>
 	<p>Pick some stuff.</p>
 	<div class="row-fluid">
@@ -135,7 +137,7 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 			</optgroup>
 		</select>
 		<input class="span3" type="hidden" id="e10"/>
-	</div>
+	</div> -->
 </div>
 
 <div class="row-fluid">
@@ -146,3 +148,11 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 	));
 	?>
 </div>
+
+<?php
+Yii::app()->clientScript->registerScript('showContactTemperature', "
+$('.items div').addClass( function(){
+	return 'temp' + $(this).find('.tempID').html();
+} );
+");
+?>

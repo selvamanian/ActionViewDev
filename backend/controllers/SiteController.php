@@ -139,10 +139,7 @@ class SiteController extends Controller
 	{
 		$dataProvider = new CActiveDataProvider('Contact', array(
 			'criteria' => array(
-				'with' => array('company'),
-				'with' => array('tblAttributes'),
-				'with' => array('user'),
-				'with' => array('tasks'),
+				'with' => array('company', 'tblAttributes', 'user', 'tasks'),
 			),
 		));
 		$this->render('dashboard', array(
