@@ -13,7 +13,7 @@
 
 $this->widget('bootstrap.widgets.TbProgress', array(
     'type'=>'success', // 'info', 'success' or 'danger'
-    'percent'=>(13/33)*100,
+    'percent'=>(14/33)*100,
 	'striped'=>true
 ));
 
@@ -40,7 +40,7 @@ $this->widget('bootstrap.widgets.TbProgress', array(
 	<li>Campaign functions</li>
 	<span class="milestone label label-info">Core DB structuring complete</span>
 	<li>Layout dashboard and company view</li>
-	<li>Implement chosen.js plugin</li>
+	<li class="complete">Implement select2 plugin</li>
 	<li>Commenting engine</li>
 	<li>Bulk edit function</li>
 	<li>Email notification system</li>
