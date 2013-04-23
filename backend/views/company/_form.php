@@ -98,9 +98,14 @@
 
 		<h3><?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
 		<?php
-			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes( null, true, array('condition'=>'parent.attribute_meta_id IN (1) AND attributeMeta.id IN (4)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
 
-			foreach($relatedAttribute as $group => $attrs){
+			$attributeModelExclusive = Attribute::model()->with('parent');
+			$attributeRecordsetExclusive = $attributeModelExclusive->findAllAttributes( null, true, array('condition'=>'t.attribute_meta_id IN (4) AND parent.attribute_meta_id IN (1,3)','order'=>'t.parent_id asc, t.id asc'));
+			$attributeListExclusive = GxHtml::listDataEx($attributeRecordsetExclusive, null, null, 'parent.name');
+			$relatedAttributeExclusive = GxHtml::encodeEx($attributeListExclusive, false, true);
+
+			foreach($relatedAttributeExclusive as $group => $attrs){
+
 				echo GxHtml::openTag('div', $htmlOptions = array('class' => 'row attrExclusiveGroup'));
 				echo $form->labelEx($model, $group);
 				echo $form->dropDownList(
@@ -110,16 +115,19 @@
 					$htmlOptions=array(
 						'id' => 'select'.str_replace(' ', '', GxHtml::encodeEx($group)),
 						'class' => 'attrExclusiveGroup',
-						'prompt' => '-- '.$group.' --',
+						'multiple' => 'multiple',
 						)
 					);
 
 				echo GxHtml::closeTag('div');
 			}
 
-			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes( null, true, array('condition'=>'parent.attribute_meta_id IN (2) AND attributeMeta.id IN (4)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
+			$attributeModelNonExclusive = Attribute::model()->with('parent');
+			$attributeRecordsetNonExclusive = $attributeModelNonExclusive->findAllAttributes( null, true, array('condition'=>'t.attribute_meta_id IN (4) AND parent.attribute_meta_id IN (2)','order'=>'t.parent_id asc, t.id asc'));
+			$attributeListNonExclusive = GxHtml::listDataEx($attributeRecordsetNonExclusive, null, null, 'parent.name');
+			$relatedAttributeNonExclusive = GxHtml::encodeEx($attributeListNonExclusive, false, true);
 
-			foreach($relatedAttribute as $group => $attrs){
+			foreach($relatedAttributeNonExclusive as $group => $attrs){
 
 				echo GxHtml::openTag('div', $htmlOptions = array('class' => 'row attrNonExclusiveGroup'));
 				echo $form->labelEx($model, $group);
@@ -137,35 +145,16 @@
 
 				echo GxHtml::closeTag('div');
 			}
-
-			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes( null, true, array('condition'=>'parent.attribute_meta_id IN (3) AND attributeMeta.id IN (4)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
-
-			foreach($relatedAttribute as $group => $attrs){
-
-				echo GxHtml::openTag('div', $htmlOptions = array('class' => 'row attrSubGroup'));
-				echo $form->labelEx($model, $group);
-				echo $form->dropDownList(
-					$model, 
-					'tblAttributes', 
-					$attrs, 
-					$htmlOptions=array(
-						'id' => 'select'.str_replace(' ', '', GxHtml::encodeEx($group)),
-						'class' => 'attrSubGroup',
-						'prompt' => '-- '.$group.' --',
-						)
-					);
-
-				echo GxHtml::closeTag('div');
-			}
-
 		?>
-
+<?php
+/*
+		?>
 		<h3><?php echo GxHtml::encode($model->getRelationLabel('contacts')); ?></h3>
 		<?php
 			$relatedContact = GxHtml::encodeEx(GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true)), false, true);
 			echo $form->dropDownList($model, 'contacts', $relatedContact, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
+*/
 		?>
-
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));
 $this->endWidget();
@@ -177,12 +166,15 @@ $this->endWidget();
 <?php
 Yii::app()->clientScript->registerScript('showContactTemperature', "
 
+
 var _sectorSelectorsParent = $('#company-form');
+_sectorSelectorsParent.find('.attrExclusiveGroup').removeAttr('multiple');
+
 var _sectorSelectors = _sectorSelectorsParent.find('#selectSector, #selectFinancial, #selectLeisure, #selectRetail');
 _sectorSelectors.addClass('sectorDDselected').change(function(){
 
 	$(this).removeClass('sectorDDselected');
-	_sectorSelectors.parent().find('.sectorDDselected').prop('selectedIndex',0);
+	_sectorSelectors.parent().find('.sectorDDselected').prop('selectedIndex',-1);
 	_sectorSelectors.addClass('sectorDDselected');
 
 });

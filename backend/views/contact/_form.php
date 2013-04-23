@@ -136,20 +136,55 @@
 
 		<h3>Related <?php echo GxHtml::encode($model->getRelationLabel('tblAttributes')); ?></h3>
 		<?php
-			$relatedAttribute = GxHtml::encodeEx(GxHtml::listDataEx(Attribute::model()->with('parent')->with('attributeMeta')->findAllAttributes(null, true, array('condition'=>'parent.attribute_meta_id IN (1, 2, 3) AND attributeMeta.id IN (5)','order'=>'t.parent_id asc, t.id asc')), null, null, 'parent.name'), false, true);
-			// echo $form->dropDownList($model, 'tblAttributes', $relatedAttribute, array('prompt'=> '-- Select --', 'multiple' => 'multiple'));
 
-			foreach($relatedAttribute as $group => $attrs){
+			$attributeModelExclusive = Attribute::model()->with('parent');
+			$attributeRecordsetExclusive = $attributeModelExclusive->findAllAttributes( null, true, array('condition'=>'t.attribute_meta_id IN (5) AND parent.attribute_meta_id IN (1,3)','order'=>'t.parent_id asc, t.id asc'));
+			$attributeListExclusive = GxHtml::listDataEx($attributeRecordsetExclusive, null, null, 'parent.name');
+			$relatedAttributeExclusive = GxHtml::encodeEx($attributeListExclusive, false, true);
+
+			foreach($relatedAttributeExclusive as $group => $attrs){
+
+				echo GxHtml::openTag('div', $htmlOptions = array('class' => 'row attrExclusiveGroup'));
+				echo $form->labelEx($model, $group);
 				echo $form->dropDownList(
 					$model, 
 					'tblAttributes', 
 					$attrs, 
 					$htmlOptions=array(
+						'id' => 'select'.str_replace(' ', '', GxHtml::encodeEx($group)),
+						'class' => 'attrExclusiveGroup',
 						'multiple' => 'multiple',
-						'prompt' => '-- '.$group.' --',
 						)
 					);
+
+				echo GxHtml::closeTag('div');
 			}
+
+			$attributeModelNonExclusive = Attribute::model()->with('parent');
+			$attributeRecordsetNonExclusive = $attributeModelNonExclusive->findAllAttributes( null, true, array('condition'=>'t.attribute_meta_id IN (5) AND parent.attribute_meta_id IN (2)','order'=>'t.parent_id asc, t.id asc'));
+			$attributeListNonExclusive = GxHtml::listDataEx($attributeRecordsetNonExclusive, null, null, 'parent.name');
+			$relatedAttributeNonExclusive = GxHtml::encodeEx($attributeListNonExclusive, false, true);
+
+			foreach($relatedAttributeNonExclusive as $group => $attrs){
+
+				echo GxHtml::openTag('div', $htmlOptions = array('class' => 'row attrNonExclusiveGroup'));
+				echo $form->labelEx($model, $group);
+				echo $form->dropDownList(
+					$model, 
+					'tblAttributes', 
+					$attrs, 
+					$htmlOptions=array(
+						'id' => 'select'.str_replace(' ', '', GxHtml::encodeEx($group)),
+						'class' => 'attrNonExclusiveGroup',
+						'prompt' => '-- '.$group.' --',
+						'multiple' => 'multiple',
+						)
+					);
+
+				echo GxHtml::closeTag('div');
+			}
+
+
 
 		?>
 
@@ -162,3 +197,22 @@ echo GxHtml::submitButton(Yii::t('app', 'Save'));
 $this->endWidget();
 ?>
 </div><!-- form -->
+
+<?php
+Yii::app()->clientScript->registerScript('showContactTemperature', "
+
+
+var _sectorSelectorsParent = $('#contact-form');
+_sectorSelectorsParent.find('.attrExclusiveGroup').removeAttr('multiple');
+
+var _sectorSelectors = _sectorSelectorsParent.find('#selectSector, #selectFinancial, #selectLeisure, #selectRetail');
+_sectorSelectors.addClass('sectorDDselected').change(function(){
+
+	$(this).removeClass('sectorDDselected');
+	_sectorSelectors.parent().find('.sectorDDselected').prop('selectedIndex',-1);
+	_sectorSelectors.addClass('sectorDDselected');
+
+});
+
+");
+?>
