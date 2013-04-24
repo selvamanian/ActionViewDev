@@ -108,6 +108,10 @@
 */
 ?>
 	</ul>
+
+<?php if(!empty($data->company)){ ?>
+
+
 	<ul class="companyDetails unstyled">
 		<li class="companyName">
 			<h3 class="clear">
@@ -192,5 +196,11 @@
 
 
 	</ul>
+
+<?php } else { ?>
+
+<p>No company assigned to this user.</p>
+
+<?php } ?>
 
 </div>
