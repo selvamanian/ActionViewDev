@@ -29,7 +29,33 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 		</div>
 
 <?php
-		// todo: Add search field here
+
+
+	echo CHtml::beginForm(CHtml::normalizeUrl(array('site/dashboard')), 'get', array('id'=>'filter-form'));
+
+    $attributeTagscriteria = new CDbCriteria();
+    $attributeTagscriteria->with = array( 'parent', 'attributeMeta' );
+    $attributeTagscriteria->addSearchCondition( 'attributeMeta.id', '5' );
+	$attributeTags =  array_map(function($e) {return $e->name;}, Attribute::model()->findAll($attributeTagscriteria));
+
+	$attributeTagsList = '';
+	foreach ($attributeTags as $value) {
+		$attributeTagsList .= $value . ', ';
+	}
+
+	$this->widget('bootstrap.widgets.TbSelect2', array(
+		'asDropDownList' => false,
+		'name' => 'string',
+		'options' => array(
+			'tags' => $attributeTags,
+			'placeholder' => 'Contact details',
+			'width' => '30%',
+			'tokenSeparators' => array(',')
+	)));
+
+	echo CHtml::submitButton('Search', array('name'=>''));
+	echo CHtml::endForm();
+
 ?>
 
 <?php /*
@@ -145,14 +171,45 @@ $this->widget('bootstrap.widgets.TbSelect2', array(
 	$this->widget('zii.widgets.CListView', array(
 		'dataProvider'=>$dataProvider,
 		'itemView'=>'_view',
+		'id'=>'ajaxListView',
 	));
 	?>
 </div>
 
 <?php
 Yii::app()->clientScript->registerScript('showContactTemperature', "
-$('.items div').addClass( function(){
-	return 'temp' + $(this).find('.tempID').html();
-} );
+
+updateTemp = function(){
+	$('.items div').addClass( function(){
+		return 'temp' + $(this).find('.tempID').html();
+	} );
+}
+
+$(document).ready(function(){
+	updateTemp();
+});
+$(document).ajaxStop(function() {
+	updateTemp();
+});
+
 ");
-?>
+
+
+Yii::app()->clientScript->registerScript('search',
+	"var ajaxUpdateTimeout;
+	var ajaxRequest;
+	var _tagInput = $('#filter-form input#string');
+	_tagInput.change(function(){
+		ajaxRequest = _tagInput.serialize();
+		clearTimeout(ajaxUpdateTimeout);
+		ajaxUpdateTimeout = setTimeout(function () {
+			$.fn.yiiListView.update(
+// this is the id of the CListView
+				'ajaxListView',
+				{data: ajaxRequest}
+			)
+		},
+// this is the delay
+		300);
+	});"
+);

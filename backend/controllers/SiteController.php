@@ -135,13 +135,20 @@ class SiteController extends Controller
 	 * Action to render login form or handle user's login
 	 * and redirection
 	 */
-	public function actionDashboard()
+	public function actionDashboard( $string = '' )
 	{
-		$dataProvider = new CActiveDataProvider('Contact', array(
-			'criteria' => array(
-				'with' => array('company', 'tblAttributes', 'user', 'tasks'),
-			),
-		));
+
+	    $criteria = new CDbCriteria();
+		if( strlen( $string ) > 0 ){
+			$strings = explode(",", $string);
+		    $criteria->together = true;
+			$criteria->with = array('company', 'tblAttributes', 'user', 'tasks');
+			foreach ($strings as $value) {
+				$criteria->addSearchCondition( 'tblAttributes.name', $value, true, 'OR' );
+			}
+		}
+
+	    $dataProvider = new CActiveDataProvider( 'Contact', array( 'criteria' => $criteria, ) );
 		$this->render('dashboard', array(
 			'dataProvider' => $dataProvider,
 		));

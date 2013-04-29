@@ -70,7 +70,7 @@ return CMap::mergeArray(
 				'password' => 'password',
 				'generatorPaths' => array(
 					'bootstrap.gii',
-	                'ext.giix-core', // giix generators
+					'ext.giix-core', // giix generators
 				)
 			)
 		), 
@@ -93,13 +93,25 @@ return CMap::mergeArray(
 				'password' => $params['db.password'],
 				'schemaCachingDuration' => YII_DEBUG ? 0 : 86400000, // 1000 days
 				'enableParamLogging' => YII_DEBUG,
-				'charset' => 'utf8'
+				'charset' => 'utf8',
+				'enableProfiling' => true,
+				'enableParamLogging' => true,
 			),
 			'urlManager' => array(
 				'urlFormat' => 'path',
 				'showScriptName' => false,
 				'urlSuffix' => '/',
 				'rules' => $params['url.rules']
+			),
+			'log'=>array(
+				'class'=>'CLogRouter',
+				'routes'=>array(
+					array(
+						'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+						// Access is restricted by default to the localhost
+						//'ipFilters'=>array('127.0.0.1','192.168.1.*', 88.23.23.0/24),
+					),
+				),
 			),
 			/* make sure you have your cache set correctly before uncommenting */
 			/* 'cache' => $params['cache.core'], */

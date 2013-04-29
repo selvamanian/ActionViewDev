@@ -24,7 +24,14 @@
 
 	echo GxHtml::openTag('li');
 	echo GxHtml::openTag('dl');
-	foreach($data->tblAttributes as $relatedModel) {
+
+    $attributeRelatedModelcriteria = new CDbCriteria();
+    $attributeRelatedModelcriteria->with = array( 'tblContacts' );
+    $attributeRelatedModelcriteria->addSearchCondition( 'tblContacts.id', $data->id );
+	$attributeRelatedModel = Attribute::model()->findAll($attributeRelatedModelcriteria);
+
+	foreach($attributeRelatedModel as $relatedModel) {
+	// foreach($data->tblAttributes as $relatedModel) {
 
 		switch(GxHtml::valueEx($relatedModel, 'parent_id')):
 		case 98:
