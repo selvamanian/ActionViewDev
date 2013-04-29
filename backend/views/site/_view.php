@@ -1,7 +1,7 @@
 <div class="span4 contactItemContainer <?php echo $index%3 ? : 'newRow' ?>">
 	<ul class="contactDetails unstyled">
 		<li class="contactName">
-			<h2><?php echo GxHtml::encode($data->firstname.' '.$data->lastname); ?></h2>
+			<h2><?php echo GxHtml::link(GxHtml::encode($data->firstname.' '.$data->lastname), array('contact/update', 'id' => $data->id), $htmlOptions = array('alt' => 'Click to update', 'title' => 'Click to update', )); ?></h2>
 		</li>
 		<li class="title"><?php echo GxHtml::encode($data->title); ?></li>
 		<li class="phone"><?php echo GxHtml::encode($data->telephone); ?></li>
@@ -122,7 +122,7 @@
 	<ul class="companyDetails unstyled">
 		<li class="companyName">
 			<h3 class="clear">
-			<?php echo GxHtml::link(GxHtml::encode($data->company->name), array('company/view', 'id' => $data->company->id)); ?>
+			<?php echo GxHtml::link(GxHtml::encode($data->company->name), array('company/update', 'id' => $data->company->id), $htmlOptions = array('alt' => 'Click to update', 'title' => 'Click to update', )); ?>
 			</h3>
 		</li>
 		<li class="webAddress"><?php echo GxHtml::encode($data->company->website); ?></li>
@@ -176,9 +176,9 @@
 		$this->widget('bootstrap.widgets.TbButtonGroup', array(
 			'size' => 'medium',
 			'buttons'=>array(
-				array('url'=>'/contact/create', 'icon'=>'icon-plus'),
-				array('url'=>'/contact/index', 'icon'=>'icon-eye-open'),
-				array('url'=>'map', 'icon'=>'icon-map-marker')
+				array('url'=>'/contact/create', 'icon'=>'icon-plus' ),
+				array('url'=>'/contact/index', 'icon'=>'icon-eye-open' ),
+				array('url'=>'http://maps.google.com/maps?q='.GxHtml::encode($data->address1.', '.$data->address2.', '.$data->address3.', '.$data->address4.', '.$data->address5.', '.$data->postcode), 'icon'=>'icon-map-marker', $linkOptions = array('target' => '_blank',) ),
 			),
 		));
 
@@ -206,7 +206,7 @@
 
 <?php } else { ?>
 
-<p>No company assigned to this user.</p>
+<p>Link a company to <?php echo GxHtml::link(GxHtml::encode($data->firstname.' '.$data->lastname), array('contact/update', 'id' => $data->id), $htmlOptions = array('alt' => 'Click to update', 'title' => 'Click to update', )); ?> or <?php echo GxHtml::link('add a company', array('company/create')); ?>.</p>
 
 <?php } ?>
 

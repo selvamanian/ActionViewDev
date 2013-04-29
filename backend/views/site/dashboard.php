@@ -13,12 +13,11 @@ $this->breadcrumbs = array(
 
 	<div class="row-fluid">
 
-		<div class="span5">
+		<div class="span4">
 <?php
 
 $this->widget('bootstrap.widgets.TbButtonGroup', array(
 	'type'=>'primary',
-	'size' => 'large',
     'buttons'=>array(
 	    array('label'=>'Add Company »', 'url'=>'/company/create'),
 	    array('label'=>'Add Campaign »', 'url'=>'/campaign/create')
@@ -48,12 +47,23 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 		'name' => 'string',
 		'options' => array(
 			'tags' => $attributeTags,
-			'placeholder' => 'Contact details',
+			'placeholder' => 'Attributes...',
 			'width' => '30%',
 			'tokenSeparators' => array(',')
 	)));
 
-	echo CHtml::submitButton('Search', array('name'=>''));
+	// show if no-js
+	// echo CHtml::submitButton('Search', array('name'=>''));
+
+	$this->widget('bootstrap.widgets.TbButton', array(
+	    'buttonType'=>'button',
+	    'type'=>'primary',
+	    'label'=>'Filter',
+	    'loadingText'=>'loading...',
+	    'htmlOptions'=>array('id'=>'buttonStateful'),
+	));
+
+
 	echo CHtml::endForm();
 
 ?>
@@ -179,7 +189,7 @@ $this->widget('bootstrap.widgets.TbSelect2', array(
 <?php
 Yii::app()->clientScript->registerScript('showContactTemperature', "
 
-updateTemp = function(){
+var updateTemp = function(){
 	$('.items div').addClass( function(){
 		return 'temp' + $(this).find('.tempID').html();
 	} );
@@ -190,6 +200,7 @@ $(document).ready(function(){
 });
 $(document).ajaxStop(function() {
 	updateTemp();
+	window.AV13btn.button('reset');
 });
 
 ");
@@ -212,4 +223,12 @@ Yii::app()->clientScript->registerScript('search',
 // this is the delay
 		300);
 	});"
+);
+
+
+Yii::app()->clientScript->registerScript('searchBTN',
+	"$('#buttonStateful').click(function() {
+    window.AV13btn = $(this);
+    window.AV13btn.button('loading'); // call the loading function
+});"
 );

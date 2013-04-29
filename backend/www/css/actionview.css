@@ -10,12 +10,18 @@ ul.contact li.user { margin-bottom: 2em;}
 .contactItemContainer {
 	padding: 0 1em;
 	margin-bottom: 1em;
+	height: 880px;
+	border: 0.25em solid transparent;
 }
 .contactDetails {
 	padding: 0 1em;
 	margin: 1em 0;
 	border: 1px solid #aaa;
 	background-color: #f7f7f7;
+	height: 520px;
+}
+.companyDetails {
+	height: 295px;
 }
 
 .btn-toolbar {
