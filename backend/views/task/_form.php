@@ -35,12 +35,41 @@
 		</div><!-- row -->
 		<div class="row">
 		<?php echo $form->labelEx($model,'due_time'); ?>
-		<?php echo $form->textField($model, 'due_time'); ?>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+			'model'=>$model,
+		    'attribute'=>'due_time',
+		    // additional javascript options for the date picker plugin
+		    'options'=>array(
+		        'showAnim'=>'fold',
+		        'dateFormat'=>'yy-mm-dd',
+		    ),
+		    'htmlOptions'=>array(
+		        'style'=>'height:20px;'
+		    ),
+		));
+		?>
 		<?php echo $form->error($model,'due_time'); ?>
 		</div><!-- row -->
+
+
+
 		<div class="row">
 		<?php echo $form->labelEx($model,'completed_time'); ?>
-		<?php echo $form->textField($model, 'completed_time'); ?>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+			'model'=>$model,
+		    'attribute'=>'completed_time',
+		    // additional javascript options for the date picker plugin
+		    'options'=>array(
+		        'showAnim'=>'fold',
+		        'dateFormat'=>'yy-mm-dd',
+		    ),
+		    'htmlOptions'=>array(
+		        'style'=>'height:20px;'
+		    ),
+		));
+		?>
 		<?php echo $form->error($model,'completed_time'); ?>
 		</div><!-- row -->
 		<div class="row">

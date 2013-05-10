@@ -20,7 +20,8 @@ class UserController extends GxController {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->id));
+					// $this->redirect(array('view', 'id' => $model->id));
+					$this->redirect('/site/dashboard');
 			}
 		}
 
@@ -35,7 +36,8 @@ class UserController extends GxController {
 			$model->setAttributes($_POST['User']);
 
 			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->id));
+				// $this->redirect(array('view', 'id' => $model->id));
+				$this->redirect('/site/dashboard');
 			}
 		}
 

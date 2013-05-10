@@ -41,34 +41,26 @@ $this->widget('bootstrap.widgets.TbButtonGroup', array(
 	foreach ($attributeTags as $value) {
 		$attributeTagsList .= $value . ', ';
 	}
-
-	$this->widget('bootstrap.widgets.TbSelect2', array(
-		'asDropDownList' => false,
-		'name' => 'string',
-		'options' => array(
-			'tags' => $attributeTags,
-			'placeholder' => 'Attributes...',
-			'width' => '30%',
-			'tokenSeparators' => array(',')
-	)));
-
-	// show if no-js
-	// echo CHtml::submitButton('Search', array('name'=>''));
-
-	$this->widget('bootstrap.widgets.TbButton', array(
-	    'buttonType'=>'button',
-	    'type'=>'primary',
-	    'label'=>'Filter',
-	    'loadingText'=>'loading...',
-	    'htmlOptions'=>array('id'=>'buttonStateful'),
-	));
-
-
-	echo CHtml::endForm();
-
 ?>
 
-<?php /*
+		<div class="span2 pull-right">
+<?php
+
+$contacts=Contact::model()->findAll();
+
+$this->widget('bootstrap.widgets.TbSelect2', array(
+	'asDropDownList' => true,
+	'name' => 'contactLookupDropdown',
+	'data' => $contacts,
+	'options' => array(
+		'placeholder' => 'Contacts',
+		'width' => '100%',
+)));
+?>
+
+		</div>
+
+
 		<div class="span2 pull-right">
 
 <?php $model = Contact::model(); ?>
@@ -81,29 +73,51 @@ $this->widget('bootstrap.widgets.TbSelect2', array(
 	'name' => 'companyLookupDropdown',
 	'data' => $companies,
 	'options' => array(
-		'placeholder' => 'Please select',
+		'placeholder' => 'Companies',
 		'width' => '100%',
 )));
 ?>
 		</div>
-		<div class="span2 pull-right">
+
+		<div class="span1 pull-right">
+
+<?php
+	// show if no-js
+	// echo CHtml::submitButton('Search', array('name'=>''));
+
+	// $this->widget('bootstrap.widgets.TbButton', array(
+	//     'buttonType'=>'button',
+	//     'type'=>'primary',
+	//     'label'=>'Filter',
+	//     'loadingText'=>'loading...',
+	//     'htmlOptions'=>array('id'=>'buttonStateful'),
+	// ));
+
+?>
+		</div>
+
+		<div class="span3 pull-right">
 <?php
 
-$contacts=Contact::model()->findAll();
-
-$this->widget('bootstrap.widgets.TbSelect2', array(
-	'asDropDownList' => true,
-	'name' => 'contactLookupDropdown',
-	'data' => $contacts,
-	'options' => array(
-		'placeholder' => 'Please select',
-		'width' => '100%',
-)));
-
+	$this->widget('bootstrap.widgets.TbSelect2', array(
+		'asDropDownList' => false,
+		'name' => 'string',
+		'options' => array(
+			'tags' => $attributeTags,
+			'placeholder' => 'Attributes...',
+			'width' => '100%',
+			'tokenSeparators' => array(',')
+	)));
 ?>
 
 		</div>
-*/ ?>
+
+
+
+<?php
+	echo CHtml::endForm();
+
+?>
 
 	</div>
 <!-- 

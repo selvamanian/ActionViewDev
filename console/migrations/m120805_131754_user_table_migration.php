@@ -144,66 +144,66 @@ class m120805_131754_user_table_migration extends CDbMigration
 		// foreign key relationships
 
 		// tbl_contact
-		$this->addForeignKey( 'fk_contact_company', 'tbl_contact', 'company_id', 'tbl_company', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_contact_user', 'tbl_contact', 'user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_contact_create_user', 'tbl_contact', 'create_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_contact_update_user', 'tbl_contact', 'update_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_contact_company','tbl_contact','company_id','tbl_company','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_contact_user','tbl_contact','user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_contact_create_user','tbl_contact','create_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_contact_update_user','tbl_contact','update_user_id','tbl_user','id','CASCADE','RESTRICT' );
 
 		// tbl_company
-		$this->addForeignKey( 'fk_company_create_user', 'tbl_company', 'create_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_company_update_user', 'tbl_company', 'update_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_company_create_user','tbl_company','create_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_company_update_user','tbl_company','update_user_id','tbl_user','id','CASCADE','RESTRICT' );
 
 		// tbl_task
-		$this->addForeignKey( 'fk_task_contact', 'tbl_task', 'contact_id', 'tbl_contact', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_task_owner', 'tbl_task', 'owner_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_task_create_user', 'tbl_task', 'create_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_task_update_user', 'tbl_task', 'update_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_task_campaign', 'tbl_task', 'campaign_id', 'tbl_campaign', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_task_contact','tbl_task','contact_id','tbl_contact','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_task_owner','tbl_task','owner_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_task_create_user','tbl_task','create_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_task_update_user','tbl_task','update_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_task_campaign','tbl_task','campaign_id','tbl_campaign','id','CASCADE','RESTRICT' );
 
 		// tbl_campaign
-		$this->addForeignKey( 'fk_campaign_create_user', 'tbl_campaign', 'create_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_campaign_update_user', 'tbl_campaign', 'update_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_campaign_create_user','tbl_campaign','create_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_campaign_update_user','tbl_campaign','update_user_id','tbl_user','id','CASCADE','RESTRICT' );
 
 		// tbl_attribute
-		$this->addForeignKey( 'fk_attribute_meta_id', 'tbl_attribute', 'attribute_meta_id', 'tbl_attribute_meta', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_attribute_parent_id', 'tbl_attribute', 'parent_id', 'tbl_attribute', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_attribute_create_user', 'tbl_attribute', 'create_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_attribute_update_user', 'tbl_attribute', 'update_user_id', 'tbl_user', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_attribute_meta_id','tbl_attribute','attribute_meta_id','tbl_attribute_meta','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_attribute_parent_id','tbl_attribute','parent_id','tbl_attribute','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_attribute_create_user','tbl_attribute','create_user_id','tbl_user','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_attribute_update_user','tbl_attribute','update_user_id','tbl_user','id','CASCADE','RESTRICT' );
 
 		// tbl_contact_attribute_assignment
-		$this->addForeignKey( 'fk_contact_attribute_assignment', 'tbl_contact_attribute_assignment', 'attribute_id', 'tbl_attribute', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_contact_attribute', 'tbl_contact_attribute_assignment', 'contact_id', 'tbl_contact', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_contact_attribute_assignment','tbl_contact_attribute_assignment','attribute_id','tbl_attribute','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_contact_attribute','tbl_contact_attribute_assignment','contact_id','tbl_contact','id','CASCADE','RESTRICT' );
 
 		// tbl_company_attribute_assignment
-		$this->addForeignKey( 'fk_company_attribute_assignment', 'tbl_company_attribute_assignment', 'attribute_id', 'tbl_attribute', 'id', 'CASCADE', 'RESTRICT' );
-		$this->addForeignKey( 'fk_company_attribute', 'tbl_company_attribute_assignment', 'company_id', 'tbl_company', 'id', 'CASCADE', 'RESTRICT' );
+		$this->addForeignKey( 'fk_company_attribute_assignment','tbl_company_attribute_assignment','attribute_id','tbl_attribute','id','CASCADE','RESTRICT' );
+		$this->addForeignKey( 'fk_company_attribute','tbl_company_attribute_assignment','company_id','tbl_company','id','CASCADE','RESTRICT' );
 
 	}
 
 
 	public function safeDown() {
 
-		$this->dropForeignKey( 'fk_contact_company', 'tbl_contact' );
-		$this->dropForeignKey( 'fk_contact_user', 'tbl_contact' );
-		$this->dropForeignKey( 'fk_contact_create_user', 'tbl_contact' );
-		$this->dropForeignKey( 'fk_contact_update_user', 'tbl_contact' );
-		$this->dropForeignKey( 'fk_company_create_user', 'tbl_company' );
-		$this->dropForeignKey( 'fk_company_update_user', 'tbl_company' );
-		$this->dropForeignKey( 'fk_task_contact', 'tbl_task' );
-		$this->dropForeignKey( 'fk_task_owner', 'tbl_task' );
-		$this->dropForeignKey( 'fk_task_create_user', 'tbl_task' );
-		$this->dropForeignKey( 'fk_task_update_user', 'tbl_task' );
-		$this->dropForeignKey( 'fk_task_campaign', 'tbl_task' );
-		$this->dropForeignKey( 'fk_campaign_create_user', 'tbl_campaign' );
-		$this->dropForeignKey( 'fk_campaign_update_user', 'tbl_campaign' );
-		$this->dropForeignKey( 'fk_attribute_meta_id', 'tbl_attribute' );
-		$this->dropForeignKey( 'fk_attribute_parent_id', 'tbl_attribute' );
-		$this->dropForeignKey( 'fk_attribute_create_user', 'tbl_attribute' );
-		$this->dropForeignKey( 'fk_attribute_update_user', 'tbl_attribute' );
-		$this->dropForeignKey( 'fk_contact_attribute_assignment', 'tbl_contact_attribute_assignment' );
-		$this->dropForeignKey( 'fk_contact_attribute', 'tbl_contact_attribute_assignment' );
-		$this->dropForeignKey( 'fk_company_attribute_assignment', 'tbl_company_attribute_assignment' );
-		$this->dropForeignKey( 'fk_company_attribute', 'tbl_company_attribute_assignment' );
+		$this->dropForeignKey( 'fk_contact_company','tbl_contact' );
+		$this->dropForeignKey( 'fk_contact_user','tbl_contact' );
+		$this->dropForeignKey( 'fk_contact_create_user','tbl_contact' );
+		$this->dropForeignKey( 'fk_contact_update_user','tbl_contact' );
+		$this->dropForeignKey( 'fk_company_create_user','tbl_company' );
+		$this->dropForeignKey( 'fk_company_update_user','tbl_company' );
+		$this->dropForeignKey( 'fk_task_contact','tbl_task' );
+		$this->dropForeignKey( 'fk_task_owner','tbl_task' );
+		$this->dropForeignKey( 'fk_task_create_user','tbl_task' );
+		$this->dropForeignKey( 'fk_task_update_user','tbl_task' );
+		$this->dropForeignKey( 'fk_task_campaign','tbl_task' );
+		$this->dropForeignKey( 'fk_campaign_create_user','tbl_campaign' );
+		$this->dropForeignKey( 'fk_campaign_update_user','tbl_campaign' );
+		$this->dropForeignKey( 'fk_attribute_meta_id','tbl_attribute' );
+		$this->dropForeignKey( 'fk_attribute_parent_id','tbl_attribute' );
+		$this->dropForeignKey( 'fk_attribute_create_user','tbl_attribute' );
+		$this->dropForeignKey( 'fk_attribute_update_user','tbl_attribute' );
+		$this->dropForeignKey( 'fk_contact_attribute_assignment','tbl_contact_attribute_assignment' );
+		$this->dropForeignKey( 'fk_contact_attribute','tbl_contact_attribute_assignment' );
+		$this->dropForeignKey( 'fk_company_attribute_assignment','tbl_company_attribute_assignment' );
+		$this->dropForeignKey( 'fk_company_attribute','tbl_company_attribute_assignment' );
 
 		$this->truncateTable( 'tbl_user' );
 		$this->truncateTable( 'tbl_contact' );

@@ -31,7 +31,7 @@
 	<?php $this->widget('bootstrap.widgets.TbNavbar', array(
 	'type' => 'inverse', // null or 'inverse'
 	'brand' => 'ActionView',
-	'brandUrl' => '/',
+	'brandUrl' => '/site/dashboard',
 	'collapse' => true, // requires bootstrap-responsive.css
 	'items' => array(
 		array(
