@@ -176,9 +176,12 @@
 		$this->widget('bootstrap.widgets.TbButtonGroup', array(
 			'size' => 'medium',
 			'buttons'=>array(
-				array('url'=>'/contact/create', 'icon'=>'icon-plus' ),
-				array('url'=>'/contact/index', 'icon'=>'icon-eye-open' ),
-				array('url'=>'http://maps.google.com/maps?q='.GxHtml::encode($data->address1.', '.$data->address2.', '.$data->address3.', '.$data->address4.', '.$data->address5.', '.$data->postcode), 'icon'=>'icon-map-marker', $linkOptions = array('target' => '_blank',) ),
+				// array('url'=>'/contact/create','icon'=>'icon-plus'),
+				// array('url'=>'/contact/index','icon'=>'icon-eye-open'),
+				// array('url'=>'http://maps.google.com/maps?q='.GxHtml::encode($data->address1.','.$data->address2.','.$data->address3.','.$data->address4.','.$data->address5.','.$data->postcode),'icon'=>'icon-map-marker',$linkOptions=array('target'=>'_blank',)),
+				array('icon'=>'icon-plus','htmlOptions'=>array('class'=>'disabled'),),
+				array('icon'=>'icon-eye-open','htmlOptions'=>array('class'=>'disabled'),),
+				array('icon'=>'icon-map-marker','htmlOptions'=>array('class'=>'disabled'),),
 			),
 		));
 
@@ -186,7 +189,8 @@
 			'size' => 'medium',
 			'toggle' => 'checkbox',
 			'buttons'=>array(
-				array('url'=>'#', 'icon'=>'icon-off'),
+				// array('url'=>'#', 'icon'=>'icon-off'),
+				array('icon'=>'icon-off','htmlOptions'=>array('class'=>'disabled'),),
 			),
 		));
 
@@ -194,7 +198,8 @@
 			'size' => 'medium',
 			'type'=>'inverse',
 			'buttons'=>array(
-				array('url'=>'#', 'icon'=>'icon-trash icon-white')
+				// array('url'=>'#', 'icon'=>'icon-trash icon-white')
+				array('icon'=>'icon-trash icon-white','htmlOptions'=>array('class'=>'disabled'),)
 			),
 		));
 
