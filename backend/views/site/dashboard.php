@@ -102,7 +102,7 @@ $this->breadcrumbs = array(
 				'name' => 'string',
 				'options' => array(
 					'tags' => $attributeTags,
-					'placeholder' => 'Contact Attributes...',
+					'placeholder' => 'Attribute filter...',
 					'width' => '100%',
 					'tokenSeparators' => array(',')
 			)));
