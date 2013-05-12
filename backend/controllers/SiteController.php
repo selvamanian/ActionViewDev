@@ -142,9 +142,10 @@ class SiteController extends Controller
 		if( strlen( $string ) > 0 ){
 			$strings = explode(",", $string);
 		    $criteria->together = true;
-			$criteria->with = array('company', 'tblAttributes', 'user', 'tasks');
+			$criteria->with = array('company', 'tblAttributes', 'user', 'tasks', 'company.tblAttributes'=>array('alias'=>'companytblAttributes'));
 			foreach ($strings as $value) {
 				$criteria->addSearchCondition( 'tblAttributes.name', $value, true, 'OR' );
+				$criteria->addSearchCondition( 'companytblAttributes.name', $value, true, 'OR' );
 			}
 		}
 
