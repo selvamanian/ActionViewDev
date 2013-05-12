@@ -17,8 +17,8 @@ $this->breadcrumbs = array(
 			$this->widget('bootstrap.widgets.TbButtonGroup', array(
 				'type'=>'primary',
 			    'buttons'=>array(
-				    array('label'=>'Add Company »', 'url'=>'/company/create'),
-				    array('label'=>'Add Campaign »', 'url'=>'/campaign/create')
+				    array('label'=>'Add Company »', 'url'=>$this->createUrl('company/create')),
+				    array('label'=>'Add Campaign »', 'url'=>$this->createUrl('campaign/create')),
 			    ),
 			));
 ?>
@@ -40,7 +40,7 @@ $this->breadcrumbs = array(
 						'width' => '100%',
 						),
 					'htmlOptions'=>array(
-						'onchange' => 'window.location = "/contact/update/" + $(this).val()',
+						'onchange' => 'window.location = "'.$this->createUrl('contact/update').'" + $(this).val()',
 						),
 					)
 				);
@@ -58,7 +58,7 @@ $this->breadcrumbs = array(
 						'width' => '100%',
 						),
 					'htmlOptions'=>array(
-						'onchange' => 'window.location = "/company/update/" + $(this).val()',
+						'onchange' => 'window.location = "'.$this->createUrl('company/update').'" + $(this).val()',
 						),
 					)
 				);
@@ -88,6 +88,7 @@ $this->breadcrumbs = array(
 		    $attributeTagsCriteria = new CDbCriteria();
 		    $attributeTagsCriteria->with = array( 'parent', 'attributeMeta' );
 		    $attributeTagsCriteria->addSearchCondition( 'attributeMeta.id', '5' );
+		    $attributeTagsCriteria->addSearchCondition( 'attributeMeta.id', '4', false, 'OR' );
 			$attributeTags = array_map(function($e) {return $e->name;}, Attribute::model()->findAll($attributeTagsCriteria));
 
 			$attributeTagsList = '';
