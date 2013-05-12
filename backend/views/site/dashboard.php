@@ -137,7 +137,6 @@ $(document).ready(function(){
 });
 $(document).ajaxStop(function() {
 	updateTemp();
-	window.AV13btn.button('reset');
 });
 
 ");
