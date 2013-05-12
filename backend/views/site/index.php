@@ -13,7 +13,7 @@
 
 $this->widget('bootstrap.widgets.TbProgress', array(
     'type'=>'success', // 'info', 'success' or 'danger'
-    'percent'=>(14/33)*100,
+    'percent'=>(15/34)*100,
 	'striped'=>true
 ));
 
@@ -38,6 +38,7 @@ $this->widget('bootstrap.widgets.TbProgress', array(
 	<li class="complete">Create/update date/time and user logs for all records</li>
 	<li>User ip logging behaviours</li>
 	<li>Campaign functions</li>
+	<li>Attribute lock function</li>
 	<span class="milestone label label-info">Core DB structuring complete</span>
 	<li>Layout dashboard and company view</li>
 	<li class="complete">Implement select2 plugin</li>
@@ -48,7 +49,7 @@ $this->widget('bootstrap.widgets.TbProgress', array(
 	<li>User access controls</li>
 	<span class="milestone label label-info">Core functional and layout coding complete</span>
 	<li>Multi-sort function</li>
-	<li>Contact and Company lookup function</li>
+	<li class="complete">Contact and Company lookup function</li>
 	<li>Reporting functionality</li>
 	<li>CSV Export function</li>
 	<li>Backup and restore function</li>
