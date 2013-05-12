@@ -30,7 +30,7 @@ $this->breadcrumbs = array(
 
 			<div class="span6 pull-left">
 <?php
-				$contacts = GxHtml::listDataEx(Contact::model()->findAllAttributes(null, true));
+				$contacts = GxHtml::listDataEx(Contact::model()->findAll());
 				$this->widget('bootstrap.widgets.TbSelect2', array(
 					'asDropDownList' => true,
 					'name' => 'contactLookupDropdown',
@@ -48,7 +48,7 @@ $this->breadcrumbs = array(
 			</div>
 			<div class="span6 pull-right">
 <?php
-				$companies = GxHtml::listDataEx(Company::model()->findAllAttributes(null, true));
+				$companies = GxHtml::listDataEx(Company::model()->findAll());
 				$this->widget('bootstrap.widgets.TbSelect2', array(
 					'asDropDownList' => true,
 					'name' => 'companyLookupDropdown',
