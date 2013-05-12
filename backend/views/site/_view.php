@@ -34,7 +34,7 @@
 	// foreach($data->tblAttributes as $relatedModel) {
 
 		switch(GxHtml::valueEx($relatedModel, 'parent_id')):
-		case 93:
+		case 92:
 			// Contact Preferences therefore boolean requires checkbox
 			// todo: how to show form to allow update of checkbox
 			echo GxHtml::openTag('dt', $htmlOptions = array('class' => 'attrGroup'. str_replace(' ', '', GxHtml::valueEx($relatedModel, 'parent.name')).GxHtml::valueEx($relatedModel, 'id') ));
@@ -43,9 +43,9 @@
 			echo GxHtml::closeTag('dt');
 			echo GxHtml::openTag('dd');
 			echo 'Yes';
-			if(GxHtml::valueEx($relatedModel, 'id') === '94')
+			if(GxHtml::valueEx($relatedModel, 'id') === '93')
 				$mailOnly = true;
-			if(GxHtml::valueEx($relatedModel, 'id') === '95')
+			if(GxHtml::valueEx($relatedModel, 'id') === '94')
 				$metContact = true;
 		break;
 		default:
@@ -54,7 +54,7 @@
 			echo ':';
 			echo GxHtml::closeTag('dt');
 			echo GxHtml::openTag('dd');
-			if(GxHtml::valueEx($relatedModel, 'parent_id') === '79'){
+			if(GxHtml::valueEx($relatedModel, 'parent_id') === '78'){
 				echo GxHtml::openTag('span', $htmlOptions = array('class' => 'hide tempID' ));
 				echo GxHtml::valueEx($relatedModel, 'id');
 				echo GxHtml::closeTag('span');

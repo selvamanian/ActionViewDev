@@ -115,6 +115,7 @@ class m120805_131754_user_table_migration extends CDbMigration
 				'create_user_id' => 'integer DEFAULT NULL',
 				'update_time' => 'datetime DEFAULT NULL',
 				'update_user_id' => 'integer DEFAULT NULL',
+				'UNIQUE KEY `name` (`name`)',
 			), 'ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8' );
 
 		$this->createTable( 'tbl_attribute_meta', array(
