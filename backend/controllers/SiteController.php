@@ -141,14 +141,46 @@ class SiteController extends Controller
 	    $criteria = new CDbCriteria();
 		if( strlen( $string ) > 0 ){
 			$strings = explode(",", $string);
-		    $criteria->together = true;
-			$criteria->with = array('company', 'tblAttributes', 'user', 'tasks', 'company.tblAttributes'=>array('alias'=>'companytblAttributes'));
+
+			// $contactAttributeTagsCriteria = new CDbCriteria();
+			// $contactAttributeTagsCriteria->with = array( 'attributeMeta' );
+			// $contactAttributeTagsCriteria->addSearchCondition( 'attributeMeta.id', '5' );
+			// $contactAttributeTags = array_map(function($e) {return $e->name;}, Attribute::model()->findAll($contactAttributeTagsCriteria));
+
+			// $filteredContactAttributeTags = array();
+			// $filteredCompanyAttributeTags = array();
 			// foreach ($strings as $value) {
-			// 	$criteria->addSearchCondition( 'tblAttributes.name', $value, true, 'OR' );
+			// 	if(in_array($value, $contactAttributeTags)){
+			// 		$filteredContactAttributeTags[] = $value;
+			// 	}elseif (in_array($value, $contactAttributeTags)) {
+			// 		$filteredCompanyAttributeTags .= $value;
+			// 	}
+			// }
+
+			$criteria->together = true;
+			$criteria->with = array('company', 'tblAttributes', 'user', 'tasks', 'company.tblAttributes'=>array('alias'=>'companytblAttributes'));
+			foreach ($strings as $value) {
+				$criteria->addSearchCondition( 'tblAttributes.name', $value, true, 'OR' );
+				$criteria->addSearchCondition( 'companytblAttributes.name', $value, true, 'OR' );
+			}
+			// foreach ($filteredContactAttributeTags as $value) {
+			// 	$criteria->addSearchCondition( 'tblAttributes.name', $value, true, 'AND' );
 			// 	$criteria->addSearchCondition( 'companytblAttributes.name', $value, true, 'OR' );
 			// }
-			$criteria->addInCondition('tblAttributes.name',$strings,'AND');
+			// $criteria->addInCondition('tblAttributes.name',$strings,'AND');
 			// $criteria->addInCondition('companytblAttributes.name',$strings,'AND');
+
+
+			// $criteria = new CDbCriteria();
+			// $criteria->with = array( 
+			//     'tblAttributes' => array(
+			//         'condition' => 'tblAttributes.name IN ("'.implode(",",$strings).'")',
+			//         'group'     => 't.id',
+			//         'having'    => 'COUNT(*) = ' . count( $strings ),
+			//     )
+			// );
+			// $criteria->together = true;
+
 		}
 
 	    $dataProvider = new CActiveDataProvider( 'Contact', array( 'criteria' => $criteria, ) );
