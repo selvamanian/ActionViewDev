@@ -28,27 +28,27 @@ ul.contact li.user { margin-bottom: 2em;}
 	text-align: center;
 }
 
-.temp80 { /* Hot */
+.temp79 { /* Hot */
 	background: #ffc7ca;
 	border: 0.25em solid #FF1B26;
 }
-.temp81 { /* Warm */
+.temp80 { /* Warm */
 	background: #ffe0c7;
 	border: 0.25em solid #FF851E;
 }
-.temp82 { /* Cool */
+.temp81 { /* Cool */
 	background: #def1ff;
 	border: 0.25em solid #75C4FF;
 }
-.temp83 { /* Cold */
+.temp82 { /* Cold */
 	background: #bed5e8;
 	border: 0.25em solid #4099E7;
 }
-.temp84 { /* Still to contact */
+.temp83 { /* Still to contact */
 	background: #ccdeba;
 	border: 0.25em solid #95DE51;
 }
-.temp85 { /* Speculative meeting */
+.temp84 { /* Speculative meeting */
 	background: #fff2bf;
 	border: 0.25em solid #FFCC00;
 }

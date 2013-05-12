@@ -61,7 +61,7 @@ INSERT INTO `actionview`.`tbl_attribute`
 
             ( 57,'Business Type','1',NULL,Now(),'6',Now(),'6' ), 
             ( 58,'All Types','4','57',Now(),'6',Now(),'6' ), 
-            ( 69,'Client','4','57',Now(),'6',Now(),'6' ), 
+            ( 59,'Client','4','57',Now(),'6',Now(),'6' ), 
             ( 60,'Prospect','4','57',Now(),'6',Now(),'6' ), 
             ( 61,'Intermediary','4','57',Now(),'6',Now(),'6' ), 
             ( 62,'Press/Media','4','57',Now(),'6',Now(),'6' ), 
@@ -73,7 +73,7 @@ INSERT INTO `actionview`.`tbl_attribute`
             ( 66,'Agency Priority','1',NULL,Now(),'6',Now(),'6' ), 
             ( 67,'High','4','66',Now(),'6',Now(),'6' ), 
             ( 68,'Medium','4','66',Now(),'6',Now(),'6' ), 
-            ( 79,'Low','4','66',Now(),'6',Now(),'6' ), 
+            ( 69,'Low','4','66',Now(),'6',Now(),'6' ), 
 
             ( 70,'Discipline','2',NULL,Now(),'6',Now(),'6' ), 
             ( 71,'All Disciplines','5','70',Now(),'6',Now(),'6' ), 
@@ -85,7 +85,7 @@ INSERT INTO `actionview`.`tbl_attribute`
             ( 77,'POP','5','70',Now(),'6',Now(),'6' ), 
 
             ( 78,'Temperature','1',NULL,Now(),'6',Now(),'6' ), 
-            ( 89,'Hot (1-3 month opportunity)','5','78',Now(),'6',Now(),'6' ), 
+            ( 79,'Hot (1-3 month opportunity)','5','78',Now(),'6',Now(),'6' ), 
             ( 80,'Warm (3-6 month opportunity)','5','78',Now(),'6',Now(),'6' ), 
             ( 81,'Cool (6-12 month opportunity)','5','78',Now(),'6',Now(),'6' ), 
             ( 82,'Cold (no interest)','5','78',Now(),'6',Now(),'6' ), 
@@ -96,7 +96,7 @@ INSERT INTO `actionview`.`tbl_attribute`
             ( 86,'Less than 50k','5','85',Now(),'6',Now(),'6' ), 
             ( 87,'Up to 100k','5','85',Now(),'6',Now(),'6' ), 
             ( 88,'Up to 250k','5','85',Now(),'6',Now(),'6' ), 
-            ( 99,'Up to 500k','5','85',Now(),'6',Now(),'6' ), 
+            ( 89,'Up to 500k','5','85',Now(),'6',Now(),'6' ), 
             ( 90,'Up to 1m','5','85',Now(),'6',Now(),'6' ), 
             ( 91,'More than 1m','5','85',Now(),'6',Now(),'6' ), 
 
